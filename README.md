@@ -25,3 +25,9 @@ No celular aparece só a foto `a` de cada roteiro.
 ## Link direto para um roteiro
 
 `.../#3-dias` abre direto no roteiro de 3 dias (funciona de 1 a 7).
+
+## Origem das fotos atuais (10/11/2026)
+
+- **Acervo da pousada (Drive):** capa, cta, roteiro-1-a, 1-b, 2-b, 4-a, 5-b, 6-b, 7-b.
+- **Wikimedia Commons (CC BY-SA, crédito no rodapé e em `creditos.json`):** roteiro-2-a (Fonte), 3-a (Caaró), 3-b (Catedral), 4-b (São João Batista), 5-a (São Nicolau), 6-a (sítio de São Miguel), 7-a (San Ignacio Miní).
+- Ao trocar uma foto do Commons por uma da pousada, tirar o crédito correspondente do rodapé.

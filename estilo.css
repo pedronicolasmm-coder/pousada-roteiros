@@ -4,6 +4,9 @@
   --marrom: #5f4a2e;
   --bronze: #a2804f;
   --bronze-claro: #cdb28a;
+  --verde: #008c58;
+  --verde-escuro: #0d3a2a;
+  --creme: #fdd59b;
   --marfim: #f8f4ec;
   --areia: #efe7da;
   --suave: #6f5e4c;
@@ -20,7 +23,7 @@ a { color: inherit; }
 strong { font-weight: 500; }
 h1, h2, h3, h4 { font-family: var(--serif); font-weight: 400; line-height: 1.05; }
 .rot-num, .seletor button b, .pilar-n { font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
-h1 em, h2 em { font-style: italic; color: var(--bronze); }
+h1 em, h2 em { font-style: italic; color: var(--verde); }
 
 /* faixa fina com as cores da marca */
 .faixa { display: flex; height: 4px; position: relative; z-index: 40; }
@@ -32,7 +35,7 @@ h1 em, h2 em { font-style: italic; color: var(--bronze); }
 .faixa i:nth-child(5) { background: #e59b1a; }
 
 /* rotulos e fios */
-.rotulo { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--bronze); }
+.rotulo { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--verde); }
 .rotulo-claro { color: var(--bronze-claro); }
 .so-mob { display: none; }
 @media (max-width: 760px) { .so-mob { display: inline; } }
@@ -75,7 +78,7 @@ h1 em, h2 em { font-style: italic; color: var(--bronze); }
 .hero-veu { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20, 12, 8, .55) 0%, rgba(20, 12, 8, .25) 40%, rgba(20, 12, 8, .6) 100%); }
 .hero-txt { position: relative; z-index: 2; padding: 140px 20px 120px; max-width: 860px; }
 .hero h1 { margin-top: 30px; color: var(--marfim); font-size: clamp(58px, 10vw, 128px); letter-spacing: -.01em; line-height: .95; }
-.hero h1 em { color: var(--bronze-claro); }
+.hero h1 em { color: var(--creme); }
 .hero-sub { font-family: var(--serif); font-size: clamp(21px, 2.6vw, 27px); line-height: 1.4; color: rgba(248, 244, 236, .92); max-width: 560px; margin: 0 auto; }
 .selo { margin: 26px 0 40px; font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--bronze-claro); }
 .rolar { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; width: 1px; height: 56px; background: rgba(248, 244, 236, .25); overflow: hidden; }
@@ -86,15 +89,15 @@ h1 em, h2 em { font-style: italic; color: var(--bronze); }
 section h2 { font-size: clamp(42px, 6vw, 72px); color: var(--tinta); margin-top: 18px; }
 .sobre, .pousada { max-width: var(--largura); margin: 0 auto; padding: 130px 40px; }
 .sobre-cab, .roteiros-cab, .pousada-cab { text-align: center; }
-.aviso { max-width: 760px; margin: 64px auto 0; padding: 36px 44px; border: 1px solid var(--bronze-claro); background: #fff; text-align: center; position: relative; }
+.aviso { max-width: 760px; margin: 64px auto 0; padding: 36px 44px; border: 1px solid var(--verde); background: #fff; text-align: center; position: relative; }
 .aviso::before { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(205, 178, 138, .45); pointer-events: none; }
-.aviso-titulo { font-size: 12px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--bronze); margin-bottom: 12px; }
+.aviso-titulo { font-size: 12px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--verde); margin-bottom: 12px; }
 .aviso p:last-child { font-family: var(--serif); font-size: 22px; line-height: 1.5; color: var(--tinta); }
 .aviso strong { font-weight: 600; }
 .pilares { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 84px; border-top: 1px solid var(--linha); }
 .pilar { padding: 44px 36px 0; text-align: center; }
 .pilar + .pilar { border-left: 1px solid var(--linha); }
-.pilar-n { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--bronze); }
+.pilar-n { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--verde); }
 .pilar h3 { font-size: 30px; margin: 10px 0 14px; color: var(--tinta); }
 .pilar p { color: var(--suave); font-size: 16px; }
 
@@ -105,7 +108,7 @@ section h2 { font-size: clamp(42px, 6vw, 72px); color: var(--tinta); margin-top:
 .seletor button { flex: 1 1 0; max-width: 150px; min-width: 0; background: none; border: 0; cursor: pointer; padding: 18px 6px 16px; display: flex; align-items: baseline; justify-content: center; gap: 7px; color: var(--suave); font-family: var(--sans); position: relative; transition: color .2s ease; }
 .seletor button b { font-family: var(--serif); font-weight: 500; font-size: 30px; line-height: 1; }
 .seletor button small { font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
-.seletor button::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: -1px; height: 2px; background: var(--bronze); transform: scaleX(0); transition: transform .25s ease; }
+.seletor button::after { content: ""; position: absolute; left: 22%; right: 22%; bottom: -1px; height: 2px; background: var(--verde); transform: scaleX(0); transition: transform .25s ease; }
 .seletor button:hover { color: var(--tinta); }
 .seletor button.ativo { color: var(--tinta); }
 .seletor button.ativo::after { transform: scaleX(1); }
@@ -113,12 +116,12 @@ section h2 { font-size: clamp(42px, 6vw, 72px); color: var(--tinta); margin-top:
 .painel { max-width: var(--largura); margin: 0 auto; padding: 80px 40px 0; display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; animation: entra .5s ease; }
 @keyframes entra { from { opacity: 0; transform: translateY(10px); } }
 .rot-info { position: sticky; top: 160px; }
-.rot-num { font-family: var(--serif); font-size: 120px; line-height: .8; color: var(--bronze-claro); font-weight: 400; }
-.rot-num small { font-family: var(--sans); font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--bronze); margin-left: 10px; vertical-align: middle; }
+.rot-num { font-family: var(--serif); font-size: 120px; line-height: .8; color: var(--verde); font-weight: 400; }
+.rot-num small { font-family: var(--sans); font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--verde); margin-left: 10px; vertical-align: middle; }
 .rot-info h3 { font-size: clamp(36px, 4vw, 48px); margin: 22px 0 18px; color: var(--tinta); }
 .rot-resumo { font-family: var(--serif); font-size: 22px; line-height: 1.45; color: var(--tinta); }
 .rot-ideal { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--linha); color: var(--suave); font-size: 16px; }
-.rot-ideal span { display: block; font-size: 11.5px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--bronze); margin-bottom: 4px; }
+.rot-ideal span { display: block; font-size: 11.5px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--verde); margin-bottom: 4px; }
 .rot-info .btn { margin-top: 34px; }
 .rot-foto-b { margin-top: 40px; aspect-ratio: 4 / 5; }
 .rot-foto-a { aspect-ratio: 16 / 10; margin-bottom: 56px; }
@@ -126,7 +129,7 @@ section h2 { font-size: clamp(42px, 6vw, 72px); color: var(--tinta); margin-top:
 .dia { padding: 0 0 44px; margin-bottom: 44px; border-bottom: 1px solid var(--linha); }
 .dia:last-child { border-bottom: 0; margin-bottom: 0; }
 .dia header { margin-bottom: 26px; }
-.dia-ord { font-size: 12px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--bronze); }
+.dia-ord { font-size: 12px; font-weight: 500; letter-spacing: .28em; text-transform: uppercase; color: var(--verde); }
 .dia h4 { font-size: 36px; color: var(--tinta); margin-top: 6px; }
 .periodo { display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--linha); }
 .periodo-nome { font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--bronze); line-height: 1.3; }
@@ -134,7 +137,7 @@ section h2 { font-size: clamp(42px, 6vw, 72px); color: var(--tinta); margin-top:
 .periodo li + li { margin-top: 16px; }
 .periodo h5 { font-family: var(--sans); font-size: 16.5px; font-weight: 500; line-height: 1.4; color: var(--tinta); }
 .periodo p { font-size: 15.5px; color: var(--suave); line-height: 1.6; margin-top: 2px; }
-.rot-nota { margin-top: 40px; padding: 22px 26px; background: var(--marfim); border-left: 2px solid var(--bronze-claro); font-size: 14.5px; color: var(--suave); line-height: 1.6; }
+.rot-nota { margin-top: 40px; padding: 22px 26px; background: var(--marfim); border-left: 2px solid var(--verde); font-size: 14.5px; color: var(--suave); line-height: 1.6; }
 .rot-nota b { font-weight: 500; color: var(--tinta); }
 
 /* etiqueta de rascunho */
@@ -209,3 +212,42 @@ body.final .conf { display: none; }
   .contatos { flex-direction: column; gap: 14px; align-items: center; }
 }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* ===== toque da identidade da pousada: verde, creme e a faixa das artes ===== */
+.btn-verde { background: var(--verde); color: #fff; }
+.btn-verde:hover { background: var(--verde-escuro); }
+.topo.solido .btn-claro { background: var(--verde); color: #fff; }
+.topo.solido .btn-claro:hover { background: var(--verde-escuro); }
+.seletor button.ativo { color: var(--verde); }
+.aviso::before { border-color: rgba(0, 140, 88, .25); }
+
+.faixa { height: 10px; background: #e59b1a; overflow: hidden; }
+.faixa i { position: relative; margin-right: -16px; border-bottom-right-radius: 16px; }
+.faixa i:nth-child(1) { z-index: 5; } .faixa i:nth-child(2) { z-index: 4; } .faixa i:nth-child(3) { z-index: 3; } .faixa i:nth-child(4) { z-index: 2; }
+.faixa i:nth-child(5) { z-index: 1; margin-right: 0; border-radius: 0; }
+.faixa-base i { border-radius: 0 16px 0 0; }
+.topo { top: 10px; }
+
+.pousada { max-width: none; background: var(--verde-escuro); padding-left: max(40px, calc((100% - 1080px) / 2)); padding-right: max(40px, calc((100% - 1080px) / 2)); }
+.pousada h2 { color: var(--marfim); }
+.pousada h2 em { color: var(--creme); }
+.pousada .rotulo { color: var(--creme); }
+.pousada .grade { border-color: rgba(248, 244, 236, .16); }
+.pousada .cartao { border-color: rgba(248, 244, 236, .16); }
+.pousada .cartao:hover { background: rgba(255, 255, 255, .04); }
+.pousada .cartao h3 { color: var(--marfim); }
+.pousada .cartao p { color: rgba(248, 244, 236, .72); }
+.pousada .conf { color: var(--creme); border-color: rgba(253, 213, 155, .6); }
+
+.creditos { max-width: 720px; margin: 22px auto 0; font-size: 11.5px; line-height: 1.7; color: rgba(248, 244, 236, .4); }
+.creditos a { color: rgba(248, 244, 236, .55); }
+
+@media (max-width: 760px) {
+  .pousada { padding-left: 16px; padding-right: 16px; }
+}
+
+/* leitura do texto sobre foto */
+.hero-veu { background:
+  radial-gradient(ellipse 70% 60% at 50% 50%, rgba(18, 11, 7, .55), rgba(18, 11, 7, 0) 75%),
+  linear-gradient(180deg, rgba(18, 11, 7, .6) 0%, rgba(18, 11, 7, .35) 45%, rgba(18, 11, 7, .7) 100%); }
+.hero h1, .hero-sub, .cta h2, .cta-sub { text-shadow: 0 2px 24px rgba(0, 0, 0, .45); }

@@ -36,14 +36,14 @@
         '<h3>' + esc(r.nome) + '</h3>' +
         '<p class="rot-resumo">' + esc(r.resumo) + '</p>' +
         '<p class="rot-ideal"><span>Indicado para</span>' + esc(r.ideal) + '</p>' +
-        '<a class="btn btn-escuro" target="_blank" rel="noopener" href="' + msg + '">Consultar hospedagem</a>' +
+        '<a class="btn btn-verde" target="_blank" rel="noopener" href="' + msg + '">Consultar hospedagem</a>' +
         '<figure class="foto rot-foto-b" data-src="img/roteiro-' + r.dias + '-b.jpg" data-label="' + esc(r.fotos[1]) + '"></figure>' +
       '</aside>' +
       '<div class="rot-dias">' +
         '<figure class="foto rot-foto-a" data-src="img/roteiro-' + r.dias + '-a.jpg" data-label="' + esc(r.fotos[0]) + '"></figure>' +
         r.dias_.map(function (id, k) { return dia(id, k, r.dias_.length); }).join('') +
         '<p class="rot-nota"><b>Esta é uma sugestão, não um pacote.</b> A pousada não vende roteiros. Horários, ingressos e funcionamento dos atrativos devem ser confirmados com cada um deles.</p>' +
-        '<p style="text-align:center;margin-top:36px"><a class="btn btn-escuro" target="_blank" rel="noopener" href="' + msg + '">Consultar hospedagem para ' + r.dias + ' ' + diasTxt(r.dias) + '</a></p>' +
+        '<p style="text-align:center;margin-top:36px"><a class="btn btn-verde" target="_blank" rel="noopener" href="' + msg + '">Consultar hospedagem para ' + r.dias + ' ' + diasTxt(r.dias) + '</a></p>' +
       '</div>';
     carregarFotos(painel);
     Array.prototype.forEach.call(seletor.children, function (b, k) {
