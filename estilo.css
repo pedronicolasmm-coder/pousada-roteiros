@@ -346,7 +346,7 @@ body.final .conf { display: none; }
 .hero-legenda span { color: rgba(248, 244, 236, .55); letter-spacing: .1em; }
 .hero-legenda em { font-style: normal; margin-left: 14px; padding-left: 14px; border-left: 1px solid rgba(248, 244, 236, .35); }
 .hero-prog { display: flex; gap: 8px; }
-.hero-prog i { position: relative; width: 44px; height: 2px; background: rgba(248, 244, 236, .3); overflow: hidden; }
+.hero-prog i { position: relative; width: 30px; height: 2px; background: rgba(248, 244, 236, .3); overflow: hidden; }
 .hero-prog i::after { content: ""; position: absolute; inset: 0; background: var(--creme); transform: scaleX(0); transform-origin: left; }
 .hero-prog i.feito::after { transform: scaleX(1); }
 .hero-prog i.ativo::after { animation: progresso 3s linear forwards; }
@@ -411,7 +411,7 @@ body.final .conf { display: none; }
 @media (max-width: 760px) {
   .hero-rodape { left: 16px; right: 16px; bottom: 92px; justify-content: center; }
   .hero-legenda { display: none; }
-  .hero-prog i { width: 30px; }
+  .hero-prog i { width: 18px; }
   .fatos { padding: 0 16px; }
   .fato { padding: 30px 12px 28px; }
   .fato b { font-size: 36px; }

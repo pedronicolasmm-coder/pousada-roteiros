@@ -26,7 +26,7 @@ Basta colocar o arquivo com o nome certo. Ele aparece sozinho no lugar do espaç
 
 | Arquivo | Onde aparece |
 |---|---|
-| `img/capa.jpg`, `img/hero-2.jpg`, `img/roteiro-6-a.jpg`, `img/hero-4.jpg`, `img/hero-5.jpg` | Capa rotativa da página inicial (troca a cada 3 s; lista no `index.html`, bloco `hero-fotos`) |
+| 12 fotos (sítio, Fonte, Caaró, Catedral, Som e Luz, São João Batista, São Nicolau, San Ignacio...) | Capa rotativa da página inicial (troca a cada 3 s; lista e legendas no `index.html`, bloco `hero-fotos`; para cada foto nova, mais um `<i></i>` em `hero-prog`) |
 | `img/roteiro-N-a.jpg` | Cartão do roteiro na página inicial e capa da página do roteiro |
 | `img/lugares/<chave>.jpg` | Foto de cada lugar dentro do roteiro. A chave é o nome do lugar em `roteiros.js` (ex.: `museu`, `praca`, `caaro`) |
 | `img/cta.jpg` | Fundo do convite final |
