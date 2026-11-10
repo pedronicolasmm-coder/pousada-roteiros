@@ -229,6 +229,26 @@
   if (rr) rr.innerHTML = ROTEIROS.map(function (o) { return '<li><a href="' + linkRoteiro(o.dias) + '">' + esc(o.nome) + '</a></li>'; }).join('');
   var ano = document.getElementById('ano'); if (ano) ano.textContent = new Date().getFullYear();
 
+  // menu do celular (botao com tres linhas no topo)
+  var menuBtn = document.getElementById('menu-btn');
+  if (menuBtn) {
+    var linkWA = (document.querySelector('.topo .js-wa') || document.querySelector('.topo .btn-peq')).href;
+    var mm = document.createElement('div');
+    mm.className = 'menu-mob'; mm.setAttribute('role', 'dialog'); mm.setAttribute('aria-modal', 'true'); mm.setAttribute('aria-label', 'Menu');
+    mm.innerHTML = '<img src="img/logo.png" alt="Pousada das Missões">' +
+      '<button type="button" class="menu-mob-fechar" aria-label="Fechar menu">×</button>' +
+      '<nav>' + document.querySelector('.topo .menu').innerHTML + '</nav>' +
+      '<div class="botoes"><a class="btn btn-verde" target="_blank" rel="noopener" href="' + linkWA + '">Consultar valores no WhatsApp</a>' +
+      '<a class="btn btn-contorno" target="_blank" rel="noopener" href="https://ig.me/m/pousadadasmissoes">Mandar direct</a></div>';
+    document.body.appendChild(mm);
+    var abreM = function () { mm.classList.add('aberto'); menuBtn.setAttribute('aria-expanded', 'true'); document.documentElement.classList.add('sem-rolar'); };
+    var fechaM = function () { mm.classList.remove('aberto'); menuBtn.setAttribute('aria-expanded', 'false'); document.documentElement.classList.remove('sem-rolar'); };
+    menuBtn.addEventListener('click', abreM);
+    mm.querySelector('.menu-mob-fechar').addEventListener('click', fechaM);
+    mm.addEventListener('click', function (ev) { if (ev.target.closest('nav a')) fechaM(); });
+    document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') fechaM(); });
+  }
+
   // barra fixa de contato no celular (aparece depois da capa)
   var barra = document.createElement('div');
   barra.className = 'barra-mob';

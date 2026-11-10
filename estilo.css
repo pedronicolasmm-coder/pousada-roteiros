@@ -427,7 +427,6 @@ body.final .conf { display: none; }
 
 /* ===== menu: pousada no topo ===== */
 .menu a.atual { opacity: 1; box-shadow: 0 1px 0 currentColor; }
-.topo-pousada { display: none; }
 .hero-botoes { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 /* ===== pagina da pousada ===== */
@@ -479,8 +478,6 @@ body.final .conf { display: none; }
   .gal-3 { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 760px) {
-  .topo-pousada { display: inline-block; margin-left: auto; margin-right: 12px; font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; color: var(--marfim); border-bottom: 1px solid rgba(248, 244, 236, .5); padding-bottom: 2px; }
-  .topo.solido .topo-pousada { color: var(--tinta); border-color: var(--bronze-claro); }
   .hero-botoes .btn { width: 100%; max-width: 320px; }
   .espaco { padding: 72px 16px; }
   .espaco-txt { font-size: 20px; }
@@ -508,6 +505,31 @@ body.final .conf { display: none; }
 .pousada-ver { text-align: center; margin-top: 56px; }
 @media (max-width: 760px) {
   .topo .btn-peq { white-space: nowrap; letter-spacing: .08em; padding: 10px 11px; }
-  .topo-pousada { white-space: nowrap; letter-spacing: .12em; margin-right: 10px; }
 }
 @media (max-width: 380px) { .topo .marca img, .topo.solido .marca img { height: 26px; } }
+
+/* ===== topo no celular: atalhos Roteiros / A pousada + menu ===== */
+.topo .marca { flex: 0 0 auto; }
+.topo .marca img { max-width: none; width: auto; }
+.topo-mob, .topo-menu-btn, .menu-mob { display: none; }
+@media (max-width: 760px) {
+  .topo { gap: 14px; }
+  .topo > .btn-peq { display: none; }
+  .topo-mob { display: flex; gap: 16px; margin-left: auto; }
+  .topo-mob a { white-space: nowrap; font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; color: var(--marfim); padding: 6px 0 3px; border-bottom: 1px solid transparent; }
+  .topo-mob a.atual-mob { border-color: var(--creme); }
+  .topo.solido .topo-mob a { color: var(--tinta); }
+  .topo.solido .topo-mob a.atual-mob { border-color: var(--verde); }
+  .topo-menu-btn { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; padding: 0 9px; background: none; border: 1px solid rgba(248, 244, 236, .45); cursor: pointer; }
+  .topo-menu-btn span { display: block; height: 1.5px; background: var(--marfim); }
+  .topo.solido .topo-menu-btn { border-color: var(--linha); }
+  .topo.solido .topo-menu-btn span { background: var(--tinta); }
+  .menu-mob { display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 90; background: var(--tinta); padding: 90px 28px 40px; opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s ease; }
+  .menu-mob.aberto { opacity: 1; visibility: visible; }
+  .menu-mob-fechar { position: absolute; top: 22px; right: 16px; width: 44px; height: 44px; background: none; border: 1px solid rgba(248, 244, 236, .3); color: var(--marfim); font-size: 30px; line-height: 1; cursor: pointer; }
+  .menu-mob img { position: absolute; top: 24px; left: 20px; height: 34px; width: auto; }
+  .menu-mob nav a { display: block; padding: 18px 0; border-bottom: 1px solid rgba(248, 244, 236, .12); font-family: var(--serif); font-size: 30px; color: var(--marfim); text-decoration: none; }
+  .menu-mob nav a.atual { color: var(--creme); box-shadow: none; }
+  .menu-mob .botoes { margin-top: auto; flex-direction: column; }
+  .menu-mob .botoes .btn { width: 100%; text-align: center; }
+}
