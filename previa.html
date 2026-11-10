@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Prévia celular e computador | Pousada das Missões</title>
+<style>
+  :root { --fundo: #2a1c14; --marfim: #f8f4ec; --verde: #008c58; --creme: #fdd59b; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--fundo); color: var(--marfim); font-family: "Segoe UI", Arial, sans-serif; min-height: 100vh; }
+  header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 14px 22px; border-bottom: 1px solid rgba(248, 244, 236, .12); }
+  header b { font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--creme); margin-right: 8px; }
+  header button { background: none; border: 1px solid rgba(248, 244, 236, .3); color: var(--marfim); padding: 8px 14px; font-size: 13px; cursor: pointer; border-radius: 2px; }
+  header button.ativo { background: var(--verde); border-color: var(--verde); }
+  header label { margin-left: auto; font-size: 13px; opacity: .8; }
+  header select { margin-left: 6px; padding: 6px; }
+  main { display: flex; gap: 36px; padding: 26px 22px; align-items: flex-start; justify-content: center; }
+  .bloco p { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; opacity: .6; margin-bottom: 10px; text-align: center; }
+  .celular { width: 414px; height: 868px; padding: 12px; border-radius: 48px; background: #111; box-shadow: 0 0 0 2px #444, 0 30px 70px rgba(0, 0, 0, .5); }
+  .celular iframe { width: 390px; height: 844px; border: 0; border-radius: 36px; background: #fff; }
+  .pc { flex: 1; max-width: 1100px; }
+  .pc-caixa { position: relative; width: 100%; aspect-ratio: 16 / 10; background: #111; padding: 10px; border-radius: 10px; box-shadow: 0 0 0 2px #444, 0 30px 70px rgba(0, 0, 0, .5); overflow: hidden; }
+  .pc-caixa iframe { position: absolute; left: 10px; top: 10px; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; background: #fff; }
+  @media (max-width: 1100px) { .pc { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <b>Prévia</b>
+  <button type="button" data-p="index.html">Página inicial</button>
+  <button type="button" data-p="pousada.html">A pousada</button>
+  <button type="button" data-p="roteiro.html?dias=1">Roteiro 1 dia</button>
+  <button type="button" data-p="roteiro.html?dias=3">Roteiro 3 dias</button>
+  <button type="button" data-p="roteiro.html?dias=7">Roteiro 7 dias</button>
+  <label>Versão
+    <select id="fonte">
+      <option value="https://pedronicolasmm-coder.github.io/pousada-roteiros/">No ar (site publicado)</option>
+      <option value="./">Arquivos deste computador</option>
+    </select>
+  </label>
+</header>
+<main>
+  <div class="bloco">
+    <p>Celular</p>
+    <div class="celular"><iframe id="cel" title="Site no celular"></iframe></div>
+  </div>
+  <div class="bloco pc">
+    <p>Computador</p>
+    <div class="pc-caixa" id="pc-caixa"><iframe id="pc" title="Site no computador"></iframe></div>
+  </div>
+</main>
+<script>
+  var cel = document.getElementById('cel'), pc = document.getElementById('pc'), fonte = document.getElementById('fonte');
+  var pagina = 'index.html';
+  try { pagina = localStorage.getItem('previa-pagina') || 'index.html'; } catch (e) {}
+  if (location.protocol === 'file:') fonte.value = './';
+  function abre() {
+    var url = fonte.value + pagina;
+    cel.src = url; pc.src = url;
+    Array.prototype.forEach.call(document.querySelectorAll('header button'), function (b) { b.classList.toggle('ativo', b.getAttribute('data-p') === pagina); });
+    try { localStorage.setItem('previa-pagina', pagina); } catch (e) {}
+  }
+  function escala() {
+    var caixa = document.getElementById('pc-caixa');
+    var s = (caixa.clientWidth - 20) / 1440;
+    pc.style.transform = 'scale(' + s + ')';
+    pc.style.height = ((caixa.clientHeight - 20) / s) + 'px';
+    var z = Math.min(1, (window.innerHeight - 150) / 868);
+    document.querySelector('.celular').style.zoom = z;
+  }
+  document.querySelector('header').addEventListener('click', function (ev) {
+    var b = ev.target.closest('button'); if (!b) return;
+    pagina = b.getAttribute('data-p'); abre();
+  });
+  fonte.addEventListener('change', abre);
+  window.addEventListener('resize', escala);
+  escala(); abre();
+</script>
+</body>
+</html>
