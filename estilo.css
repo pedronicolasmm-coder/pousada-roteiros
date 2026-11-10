@@ -336,3 +336,11 @@ body.final .conf { display: none; }
   .lugar-inv .lugar-foto { order: 0; }
   .rot-fim { padding: 0 16px; margin-bottom: 80px; }
 }
+
+/* escala de 80% no computador (pedido do Pedro: "como se a pagina estivesse com 80%").
+   Com zoom, 100vh vira 80% da tela; por isso as alturas de tela cheia vao divididas por .8 */
+@media (min-width: 1024px) {
+  html { zoom: .8; }
+  .hero { min-height: clamp(640px, 125vh, 1200px); min-height: clamp(640px, 125svh, 1200px); }
+  .rot-hero { min-height: clamp(560px, 102.5vh, 1025px); min-height: clamp(560px, 102.5svh, 1025px); }
+}
