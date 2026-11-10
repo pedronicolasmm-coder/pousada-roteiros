@@ -17,7 +17,7 @@ const L = {
   praca:     { t: "Praça e centro da cidade", o: "São Miguel das Missões", d: "Passeio a pé pelo centro de São Miguel, com tempo para um café e para as lojinhas." },
   irmaica:   { t: "Cena Irmaicá", o: "São Miguel das Missões", d: "Texto a definir com a pousada.", c: "Confirmar nome correto e o que é o lugar." },
   antimon:   { t: "Antimonumento ao Bandeirante", o: "São Miguel das Missões", d: "Obra que provoca a pensar a história das Missões pelo olhar de quem viveu aqui.", c: "Confirmar local e descrição." },
-  borraio:   { t: "Borraio", o: "São Miguel das Missões", d: "Texto a definir com a pousada.", c: "Confirmar nome correto e o que é o lugar." },
+  borraio:   { t: "Borraio", o: "São Miguel das Missões", d: "Galpão rústico com objetos antigos, ferramentas e lembranças que contam as origens das famílias da região.", c: "Confirmar descrição, endereço e horário de visitação." },
   jantar:    { t: "Jantar na cidade", o: "São Miguel das Missões", d: "A pousada não serve jantar, mas indica onde comer bem em São Miguel." },
   caaro:     { t: "Santuário do Caaró, em Caibaté", o: "Caibaté", d: "Lugar de fé ligado aos mártires das Missões, com o santuário e a mata ao redor.", c: "Confirmar descrição histórica." },
   catedral:  { t: "Catedral Angelopolitana, em Santo Ângelo", o: "Santo Ângelo", d: "A catedral inspirada na igreja de São Miguel Arcanjo, no coração de Santo Ângelo." },

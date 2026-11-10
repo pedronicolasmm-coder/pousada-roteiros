@@ -35,18 +35,11 @@
     "copias": "lugares/argentina.jpg"
   },
   {
-    "arquivo": "roteiro-2-a.jpg",
-    "autor": "Halley Pacheco de Oliveira",
-    "licenca": "CC BY-SA 3.0",
-    "url": "https://commons.wikimedia.org/wiki/File:S%C3%ADtio_Arqueol%C3%B3gico_de_S%C3%A3o_Miguel_Arcanjo_28.jpg",
-    "copias": "lugares/fonte.jpg"
-  },
-  {
     "arquivo": "roteiro-6-a.jpg",
     "autor": "Halley Pacheco de Oliveira",
     "licenca": "CC BY-SA 3.0",
     "url": "https://commons.wikimedia.org/wiki/File:S%C3%ADtio_Arqueol%C3%B3gico_de_S%C3%A3o_Miguel_Arcanjo_09.jpg",
-    "copias": "lugares/detalhes.jpg (e capa rotativa)"
+    "copias": "capa rotativa"
   },
   {
     "arquivo": "lugares/stoangelo.jpg",

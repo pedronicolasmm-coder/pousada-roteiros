@@ -19,8 +19,8 @@ const ESPACOS = [
       { f: 'img/pousada/apto-5.jpg', leg: 'Bancada com cuba dupla' },
       { f: 'img/pousada/apto-6.jpg', leg: 'Apartamento' },
       { f: 'img/pousada/apto-7.jpg', leg: 'Apartamento com cama de casal' },
-      { f: 'img/pousada/apto-8.jpg', leg: 'Detalhes do banheiro' },
-      { f: 'img/roteiro-7-b.jpg', leg: 'Apartamento' }
+      { f: 'img/pousada/apto-8.jpg', leg: 'Apartamento com cama de casal e de solteiro' },
+      { f: 'img/pousada/apto-9.jpg', leg: 'Suíte com cama de casal' }
     ]
   },
   {
@@ -53,7 +53,7 @@ const ESPACOS = [
       { f: 'img/pousada/jardim-2.jpg', leg: 'Jardim interno' },
       { f: 'img/cta.jpg', leg: 'Jardim entre os apartamentos' },
       { f: 'img/roteiro-5-b.jpg', leg: 'Caminho do jardim' },
-      { f: 'img/pousada/jardim-4.jpg', leg: 'Entrada' }
+      { f: 'img/pousada/jardim-4.jpg', leg: 'Fachada com palmeiras' }
     ]
   },
   {
