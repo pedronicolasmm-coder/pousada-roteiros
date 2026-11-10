@@ -8,6 +8,9 @@ A pousada sugere; não vende pacote nem roteiro.
 - `index.html`: página inicial com a capa rotativa e os 7 cartões de roteiro.
 - `roteiro.html?dias=N`: página de cada roteiro (N de 1 a 7), dia a dia, com uma foto para cada lugar.
   Uma página só serve para os 7 roteiros: o conteúdo vem de `roteiros.js`.
+- `pousada.html`: "Conheça a pousada", espaços internos com galeria e visualizador em tela cheia. Textos e fotos em `pousada-fotos.js`, fotos em `img/pousada/`.
+
+No ar (GitHub Pages): https://pedronicolasmm-coder.github.io/pousada-roteiros/
 
 ## Como editar
 

@@ -139,6 +139,91 @@
     }
   }
 
+  /* ===== pagina da pousada: espacos com galeria e visualizador em tela cheia ===== */
+  var espacos = document.getElementById('espacos');
+  if (espacos && typeof ESPACOS !== 'undefined') {
+    var lista = []; // todas as fotos, na ordem, para o visualizador
+    var navE = document.getElementById('nav-espacos');
+    navE.innerHTML = ESPACOS.map(function (e) { return '<a href="#' + e.id + '"><small>' + esc(e.curto || e.titulo) + '</small></a>'; }).join('');
+    espacos.innerHTML = ESPACOS.map(function (e, k) {
+      var ini = lista.length;
+      e.fotos.forEach(function (f) { lista.push({ src: f.f, leg: f.leg || e.titulo, sec: e.titulo }); });
+      var gal = e.fotos.map(function (f, j) {
+        return '<button type="button" class="gal-item' + (j === 0 ? ' gal-grande' : '') + '" data-i="' + (ini + j) + '" aria-label="Ampliar: ' + esc(f.leg || e.titulo) + '">' +
+          '<img loading="lazy" src="' + esc(f.f) + '" alt="' + esc(f.leg || e.titulo) + '"></button>';
+      }).join('');
+      return '<section class="espaco' + (k % 2 ? ' espaco-alt' : '') + '" id="' + e.id + '">' +
+        '<div class="espaco-cab">' +
+          '<p class="rotulo">' + esc(e.rotulo) + '</p>' +
+          '<h2>' + esc(e.titulo) + '</h2>' +
+          '<p class="espaco-txt">' + esc(e.texto) + conf(e.c) + '</p>' +
+          (e.itens ? '<ul class="espaco-itens">' + e.itens.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' : '') +
+        '</div>' +
+        '<div class="galeria gal-' + Math.min(e.fotos.length, 7) + '">' + gal + '</div>' +
+        (e.fotos.length > 1 ? '<p class="gal-ver"><button type="button" class="gal-todas" data-i="' + ini + '">Ver as ' + e.fotos.length + ' fotos em tela cheia</button></p>' : '') +
+      '</section>';
+    }).join('');
+
+    // visualizador
+    var lb = document.createElement('div');
+    lb.className = 'lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Fotos da pousada');
+    lb.innerHTML = '<button type="button" class="lb-fechar" aria-label="Fechar">×</button>' +
+      '<button type="button" class="lb-seta lb-ant" aria-label="Foto anterior">‹</button>' +
+      '<figure class="lb-fig"><img alt=""><figcaption><span class="lb-sec"></span><span class="lb-leg"></span><span class="lb-n"></span></figcaption></figure>' +
+      '<button type="button" class="lb-seta lb-prox" aria-label="Próxima foto">›</button>';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector('img'), lbAt = 0;
+    function mostra(i) {
+      lbAt = (i + lista.length) % lista.length;
+      var it = lista[lbAt];
+      lbImg.src = it.src; lbImg.alt = it.leg;
+      lb.querySelector('.lb-sec').textContent = it.sec;
+      lb.querySelector('.lb-leg').textContent = it.leg === it.sec ? '' : it.leg;
+      lb.querySelector('.lb-n').textContent = (lbAt + 1) + ' / ' + lista.length;
+    }
+    function abre(i) { mostra(i); lb.classList.add('aberto'); document.documentElement.classList.add('sem-rolar'); lb.querySelector('.lb-fechar').focus(); }
+    function fecha() { lb.classList.remove('aberto'); document.documentElement.classList.remove('sem-rolar'); }
+    espacos.addEventListener('click', function (ev) {
+      var b = ev.target.closest('[data-i]');
+      if (b) abre(parseInt(b.getAttribute('data-i'), 10));
+    });
+    lb.querySelector('.lb-fechar').addEventListener('click', fecha);
+    lb.querySelector('.lb-ant').addEventListener('click', function () { mostra(lbAt - 1); });
+    lb.querySelector('.lb-prox').addEventListener('click', function () { mostra(lbAt + 1); });
+    lb.addEventListener('click', function (ev) { if (ev.target === lb) fecha(); });
+    document.addEventListener('keydown', function (ev) {
+      if (!lb.classList.contains('aberto')) return;
+      if (ev.key === 'Escape') fecha();
+      if (ev.key === 'ArrowLeft') mostra(lbAt - 1);
+      if (ev.key === 'ArrowRight') mostra(lbAt + 1);
+    });
+    var tx = null;
+    lb.addEventListener('touchstart', function (ev) { tx = ev.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function (ev) {
+      if (tx === null) return;
+      var dx = ev.changedTouches[0].clientX - tx; tx = null;
+      if (Math.abs(dx) > 50) mostra(lbAt + (dx < 0 ? 1 : -1));
+    });
+
+    // marca o espaco que esta na tela
+    if ('IntersectionObserver' in window) {
+      var linksE = navE.querySelectorAll('a');
+      var obsE = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var n = ESPACOS.map(function (x) { return x.id; }).indexOf(e.target.id);
+          Array.prototype.forEach.call(linksE, function (a, i) { a.classList.toggle('ativo', i === n); });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      Array.prototype.forEach.call(espacos.querySelectorAll('.espaco'), function (s) { obsE.observe(s); });
+    }
+    var outrosP = document.getElementById('outros');
+    if (outrosP) outrosP.innerHTML = ROTEIROS.map(cartao).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('.js-wa'), function (a) {
+      a.href = WA + encodeURIComponent('Olá! Vi as fotos da pousada e quero saber os valores para a minha data.');
+    });
+  }
+
   // rodape: lista dos roteiros e ano
   var rr = document.getElementById('rodape-roteiros');
   if (rr) rr.innerHTML = ROTEIROS.map(function (o) { return '<li><a href="' + linkRoteiro(o.dias) + '">' + esc(o.nome) + '</a></li>'; }).join('');
