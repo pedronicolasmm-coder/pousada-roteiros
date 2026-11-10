@@ -15,7 +15,7 @@ Basta colocar o arquivo com o nome certo dentro de `img/`. Ele aparece sozinho n
 
 | Arquivo | Onde aparece |
 |---|---|
-| `img/capa.jpg` | Capa do topo (foto horizontal, de preferência 1920 px de largura) |
+| `img/capa.jpg`, `img/hero-2.jpg`, `img/roteiro-6-a.jpg`, `img/hero-4.jpg`, `img/hero-5.jpg` | Capa rotativa do topo (troca a cada 3 s, em loop; lista no `index.html`, bloco `hero-fotos`) |
 | `img/cta.jpg` | Fundo do convite final |
 | `img/roteiro-1-a.jpg` e `img/roteiro-1-b.jpg` | Fotos do roteiro de 1 dia |
 | `img/roteiro-2-a.jpg` ... `img/roteiro-7-b.jpg` | Fotos dos roteiros de 2 a 7 dias |
@@ -28,6 +28,6 @@ No celular aparece só a foto `a` de cada roteiro.
 
 ## Origem das fotos atuais (10/11/2026)
 
-- **Acervo da pousada (Drive):** capa, cta, roteiro-1-a, 1-b, 2-b, 4-a, 5-b, 6-b, 7-b.
+- **Acervo da pousada (Drive):** capa, hero-2 (IMG_9925), hero-4 (IMG_9906), hero-5 (IMG_9946), cta, roteiro-1-a, 1-b, 2-b, 4-a, 5-b, 6-b, 7-b.
 - **Wikimedia Commons (CC BY-SA, crédito no rodapé e em `creditos.json`):** roteiro-2-a (Fonte), 3-a (Caaró), 3-b (Catedral), 4-b (São João Batista), 5-a (São Nicolau), 6-a (sítio de São Miguel), 7-a (San Ignacio Miní).
 - Ao trocar uma foto do Commons por uma da pousada, tirar o crédito correspondente do rodapé.

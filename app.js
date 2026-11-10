@@ -84,5 +84,22 @@
   var ini = m ? Math.min(Math.max(parseInt(m[1], 10) - 1, 0), ROTEIROS.length - 1) : 0;
   render(ini);
   carregarFotos(document);
+
+  // capa rotativa: troca de foto a cada 3 segundos, em loop, so entre as que ja carregaram
+  var slides = document.querySelectorAll('.hero-foto');
+  var atual = 0;
+  var semMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (slides.length > 1 && !semMovimento) {
+    setInterval(function () {
+      if (document.hidden) return;
+      var n = atual;
+      do { n = (n + 1) % slides.length; } while (n !== atual && !slides[n].classList.contains('ok'));
+      if (n === atual) return;
+      slides[atual].classList.remove('ativa');
+      slides[n].classList.add('ativa');
+      atual = n;
+    }, 3000);
+  }
+
   if (m) document.getElementById('roteiros').scrollIntoView();
 })();
