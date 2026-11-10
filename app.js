@@ -293,6 +293,12 @@
   }
 
   function rolar() { topo.classList.toggle('solido', window.pageYOffset > 40); }
+  // a barra dos dias/espacos gruda logo abaixo do topo, qualquer que seja a altura dele
+  function alturaTopo() { document.documentElement.style.setProperty('--topo-h', (topo.offsetTop + topo.offsetHeight) + 'px'); }
+  window.addEventListener('resize', alturaTopo);
+  topo.addEventListener('transitionend', alturaTopo);
+  window.addEventListener('scroll', function () { requestAnimationFrame(alturaTopo); }, { passive: true });
+  alturaTopo();
   window.addEventListener('scroll', rolar, { passive: true });
   rolar();
 })();

@@ -547,3 +547,16 @@ body.final .conf { display: none; }
   .menu-mob nav a.destaque { color: var(--creme); }
   .menu-mob nav a.destaque::after { content: " →"; font-size: 24px; }
 }
+
+/* ===== barra dos dias no celular: circulos alinhados ===== */
+@media (max-width: 760px) {
+  .nav-dias:not(.nav-espacos) { align-items: center; justify-content: center; gap: 10px; padding: 10px 12px; }
+  .nav-dias:not(.nav-espacos)::before { content: "Dias"; font-size: 10.5px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--suave); margin-right: 4px; }
+  .nav-dias:not(.nav-espacos) a { flex: 0 0 auto; width: 36px; height: 36px; padding: 0; border-radius: 50%; border: 1px solid var(--linha); display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0; color: var(--tinta); background: #fff; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+  .nav-dias:not(.nav-espacos) a small { display: none; }
+  .nav-dias:not(.nav-espacos) a b { font-family: var(--sans); font-size: 15px; font-weight: 500; line-height: 1; }
+  .nav-dias:not(.nav-espacos) a::after { display: none; }
+  .nav-dias:not(.nav-espacos) a.ativo { background: var(--verde); border-color: var(--verde); color: #fff; }
+}
+.seletor-wrap { top: var(--topo-h, 62px); }
+@media (max-width: 760px) { .seletor-wrap { top: var(--topo-h, 56px); } }
