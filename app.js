@@ -39,17 +39,37 @@
         '<a class="btn btn-verde" target="_blank" rel="noopener" href="' + msg + '">Consultar hospedagem</a>' +
         '<figure class="foto rot-foto-b" data-src="img/roteiro-' + r.dias + '-b.jpg" data-label="' + esc(r.fotos[1]) + '"></figure>' +
       '</aside>' +
-      '<div class="rot-dias">' +
-        '<figure class="foto rot-foto-a" data-src="img/roteiro-' + r.dias + '-a.jpg" data-label="' + esc(r.fotos[0]) + '"></figure>' +
-        r.dias_.map(function (id, k) { return dia(id, k, r.dias_.length); }).join('') +
-        '<p class="rot-nota"><b>Esta é uma sugestão, não um pacote.</b> A pousada não vende roteiros. Horários, ingressos e funcionamento dos atrativos devem ser confirmados com cada um deles.</p>' +
-        '<p style="text-align:center;margin-top:36px"><a class="btn btn-verde" target="_blank" rel="noopener" href="' + msg + '">Consultar hospedagem para ' + r.dias + ' ' + diasTxt(r.dias) + '</a></p>' +
+      '<div class="rot-col">' +
+        '<p class="rot-dica"><span aria-hidden="true">↓</span> Role dentro do quadro para ver o roteiro completo</p>' +
+        '<div class="rot-caixa">' +
+          '<div class="rot-dias" tabindex="0" aria-label="Roteiro dia a dia">' +
+            '<figure class="foto rot-foto-a" data-src="img/roteiro-' + r.dias + '-a.jpg" data-label="' + esc(r.fotos[0]) + '"></figure>' +
+            r.dias_.map(function (id, k) { return dia(id, k, r.dias_.length); }).join('') +
+            '<p class="rot-nota"><b>Esta é uma sugestão, não um pacote.</b> A pousada não vende roteiros. Horários, ingressos e funcionamento dos atrativos devem ser confirmados com cada um deles.</p>' +
+          '</div>' +
+        '</div>' +
+        '<p class="rot-cta"><a class="btn btn-verde" target="_blank" rel="noopener" href="' + msg + '">Consultar hospedagem para ' + r.dias + ' ' + diasTxt(r.dias) + '</a></p>' +
       '</div>';
     carregarFotos(painel);
+    caixaRolagem(painel);
     Array.prototype.forEach.call(seletor.children, function (b, k) {
       b.setAttribute('aria-selected', k === i ? 'true' : 'false');
       b.classList.toggle('ativo', k === i);
     });
+  }
+
+  // quadro com rolagem propria: esconde a dica quando tudo cabe e tira o degrade no fim
+  function caixaRolagem(raiz) {
+    var col = raiz.querySelector('.rot-col');
+    var caixa = raiz.querySelector('.rot-caixa');
+    var box = raiz.querySelector('.rot-dias');
+    function medir() {
+      col.classList.toggle('cabe', box.scrollHeight <= box.clientHeight + 2);
+      caixa.classList.toggle('fim', box.scrollTop + box.clientHeight >= box.scrollHeight - 4);
+    }
+    box.addEventListener('scroll', medir, { passive: true });
+    window.addEventListener('resize', medir);
+    medir();
   }
 
   function carregarFotos(raiz) {
