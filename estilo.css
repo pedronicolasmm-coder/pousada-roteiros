@@ -533,3 +533,17 @@ body.final .conf { display: none; }
   .menu-mob .botoes { margin-top: auto; flex-direction: column; }
   .menu-mob .botoes .btn { width: 100%; text-align: center; }
 }
+
+/* ===== link de destaque para a outra parte do site (pousada <-> roteiros) ===== */
+.menu { align-items: center; }
+.menu a.destaque { opacity: 1; color: var(--creme); border: 1px solid rgba(253, 213, 155, .75); padding: 9px 16px; margin: -10px 0; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.menu a.destaque:hover { background: rgba(253, 213, 155, .14); }
+.topo.solido .menu a.destaque { color: #fff; background: var(--verde); border-color: var(--verde); }
+.topo.solido .menu a.destaque:hover { background: var(--verde-escuro); border-color: var(--verde-escuro); }
+@media (max-width: 760px) {
+  .topo-mob { align-items: center; }
+  .topo-mob a.destaque { color: var(--creme); border: 1px solid rgba(253, 213, 155, .75); padding: 6px 9px 5px; }
+  .topo.solido .topo-mob a.destaque { color: #fff; background: var(--verde); border-color: var(--verde); }
+  .menu-mob nav a.destaque { color: var(--creme); }
+  .menu-mob nav a.destaque::after { content: " →"; font-size: 24px; }
+}
