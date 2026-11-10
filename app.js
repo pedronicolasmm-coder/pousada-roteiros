@@ -145,6 +145,7 @@
     var lista = []; // todas as fotos, na ordem, para o visualizador
     var navE = document.getElementById('nav-espacos');
     navE.innerHTML = ESPACOS.map(function (e) { return '<a href="#' + e.id + '"><small>' + esc(e.curto || e.titulo) + '</small></a>'; }).join('');
+    if (document.getElementById('localizacao')) navE.innerHTML += '<a href="#localizacao"><small>Localização</small></a>';
     espacos.innerHTML = ESPACOS.map(function (e, k) {
       var ini = lista.length;
       e.fotos.forEach(function (f) { lista.push({ src: f.f, leg: f.leg || e.titulo, sec: e.titulo }); });
@@ -211,11 +212,12 @@
       var obsE = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
-          var n = ESPACOS.map(function (x) { return x.id; }).indexOf(e.target.id);
+          var n = ESPACOS.map(function (x) { return x.id; }).concat(['localizacao']).indexOf(e.target.id);
           Array.prototype.forEach.call(linksE, function (a, i) { a.classList.toggle('ativo', i === n); });
         });
       }, { rootMargin: '-45% 0px -50% 0px' });
       Array.prototype.forEach.call(espacos.querySelectorAll('.espaco'), function (s) { obsE.observe(s); });
+      var loc = document.getElementById('localizacao'); if (loc) obsE.observe(loc);
     }
     var outrosP = document.getElementById('outros');
     if (outrosP) outrosP.innerHTML = ROTEIROS.map(cartao).join('');
