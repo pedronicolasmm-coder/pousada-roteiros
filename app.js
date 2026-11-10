@@ -29,12 +29,12 @@
       '<p class="rot-num">' + r.dias + (r.dias === 1 ? ' dia' : ' dias') + '</p>' +
       '<h3 class="titulo-caixa"><span>' + esc(r.nome) + '</span></h3>' +
       '<p class="rot-resumo">' + esc(r.resumo) + '</p>' +
-      '<p class="pilula pilula-verde pilula-peq">Ideal para: ' + esc(r.ideal) + '</p></div>' +
+      '<p class="caixa-marrom">Ideal para: ' + esc(r.ideal) + '</p></div>' +
       '<div class="rot-fotos">' +
       '<figure class="foto" data-src="img/roteiro-' + r.dias + '-a.jpg" data-label="Foto: ' + esc(r.fotos[0]) + '"></figure>' +
       '<figure class="foto" data-src="img/roteiro-' + r.dias + '-b.jpg" data-label="Foto: ' + esc(r.fotos[1]) + '"></figure></div>' +
       '<div class="dias">' + r.dias_.map(function (id, k) { return dia(id, k + 1); }).join('') + '</div>' +
-      '<a class="btn btn-verde rot-btn" target="_blank" rel="noopener" href="https://wa.me/5555981615722?text=' +
+      '<a class="btn btn-marrom rot-btn" target="_blank" rel="noopener" href="https://wa.me/5555981615722?text=' +
       encodeURIComponent('Olá! Vi o roteiro de ' + r.dias + (r.dias === 1 ? ' dia' : ' dias') + ' e quero saber os valores para a minha data.') +
       '">Quero os valores para ' + r.dias + (r.dias === 1 ? ' dia' : ' dias') + '</a>';
     painel.innerHTML = h;
