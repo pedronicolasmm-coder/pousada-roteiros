@@ -24,12 +24,31 @@
     });
   }
 
+  // numeros de cada roteiro: cidades visitadas e passeios (sem contar pousada e jantar)
+  function info(r) {
+    var cidades = [], passeios = 0;
+    r.dias_.forEach(function (id) {
+      periodos.forEach(function (p) {
+        D[id][p[0]].forEach(function (lid) {
+          var l = L[lid];
+          if (l.o === 'Pousada das Missões' || lid === 'jantar') return;
+          passeios++;
+          var c = l.o === 'Região das Missões' ? null : l.o;
+          if (c && cidades.indexOf(c) < 0) cidades.push(c);
+        });
+      });
+    });
+    return { cidades: cidades, passeios: passeios };
+  }
+  function nCidades(n) { return n + (n === 1 ? ' cidade' : ' cidades'); }
+
   function cartao(r) {
     return '<a class="card" href="' + linkRoteiro(r.dias) + '">' +
       '<figure class="foto card-foto" data-src="img/roteiro-' + r.dias + '-a.jpg" data-label="' + esc(r.fotos[0]) + '">' +
         '<span class="card-num">' + r.dias + '<small>' + diasTxt(r.dias) + '</small></span>' +
       '</figure>' +
       '<div class="card-txt">' +
+        '<p class="card-meta">' + nCidades(info(r).cidades.length) + ' · ' + info(r).passeios + ' passeios</p>' +
         '<h3>' + esc(r.nome) + '</h3>' +
         '<p>' + esc(r.resumo) + '</p>' +
         '<span class="card-ver">Ver o roteiro <i aria-hidden="true">→</i></span>' +
@@ -60,7 +79,9 @@
     document.getElementById('rot-titulo').textContent = r.nome;
     document.getElementById('rot-resumo').textContent = r.resumo;
     document.getElementById('rot-ideal').textContent = r.ideal;
-    document.getElementById('rot-qtd').textContent = r.dias + ' ' + diasTxt(r.dias);
+    var inf = info(r);
+    document.getElementById('rot-qtd').textContent = r.dias + ' ' + diasTxt(r.dias) + ' · ' + inf.passeios + ' passeios';
+    document.getElementById('rot-cidades').textContent = inf.cidades.join(', ');
     Array.prototype.forEach.call(document.querySelectorAll('.js-wa'), function (a) { a.href = msg; });
     var ctaBtn = document.getElementById('rot-cta-btn');
     ctaBtn.textContent = 'Consultar hospedagem para ' + r.dias + ' ' + diasTxt(r.dias);
@@ -89,7 +110,7 @@
           var l = L[lid];
           lado++;
           h += '<article class="lugar' + (lado % 2 === 0 ? ' lugar-inv' : '') + '">' +
-            '<figure class="foto lugar-foto" data-src="img/lugares/' + lid + '.jpg" data-label="Foto: ' + esc(l.t) + '"></figure>' +
+            '<figure class="foto lugar-foto" data-src="img/lugares/' + lid + '.jpg" data-label="Foto: ' + esc(l.t) + '"><figcaption class="lugar-onde">' + esc(l.o) + '</figcaption></figure>' +
             '<div class="lugar-txt">' +
               '<p class="lugar-periodo">' + p[1] + '</p>' +
               '<h3>' + esc(l.t) + conf(l.c) + '</h3>' +
@@ -118,12 +139,41 @@
     }
   }
 
+  // rodape: lista dos roteiros e ano
+  var rr = document.getElementById('rodape-roteiros');
+  if (rr) rr.innerHTML = ROTEIROS.map(function (o) { return '<li><a href="' + linkRoteiro(o.dias) + '">' + esc(o.nome) + '</a></li>'; }).join('');
+  var ano = document.getElementById('ano'); if (ano) ano.textContent = new Date().getFullYear();
+
+  // barra fixa de contato no celular (aparece depois da capa)
+  var barra = document.createElement('div');
+  barra.className = 'barra-mob';
+  barra.innerHTML = '<a class="btn btn-verde" target="_blank" rel="noopener" href="' + (pag ? msg : WA + encodeURIComponent('Olá! Vi os roteiros e quero saber os valores para a minha data.')) + '">Consultar valores</a>' +
+    '<a class="btn barra-direct" target="_blank" rel="noopener" href="https://ig.me/m/pousadadasmissoes">Direct</a>';
+  document.body.appendChild(barra);
+  var contato = document.getElementById('contato');
+  function barraMob() {
+    var noFim = contato && contato.getBoundingClientRect().top < window.innerHeight;
+    barra.classList.toggle('ver', window.pageYOffset > 520 && !noFim);
+  }
+  window.addEventListener('scroll', barraMob, { passive: true });
+
   carregarFotos(document);
 
   /* ===== capa rotativa da pagina inicial: troca a cada 3 segundos, em loop ===== */
   var slides = document.querySelectorAll('.hero-fotos .hero-foto');
   var atual = 0;
   var semMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prog = document.querySelectorAll('#hero-prog i');
+  function legenda() {
+    var hn = document.getElementById('hero-n'), hl = document.getElementById('hero-leg');
+    if (hn) hn.textContent = (atual < 9 ? '0' : '') + (atual + 1);
+    if (hl) hl.textContent = slides[atual].getAttribute('data-legenda') || '';
+    Array.prototype.forEach.call(prog, function (p, i) {
+      p.classList.remove('ativo'); p.classList.toggle('feito', i < atual);
+      if (i === atual) { void p.offsetWidth; p.classList.add('ativo'); }
+    });
+  }
+  if (slides.length) legenda();
   if (slides.length > 1 && !semMovimento) {
     setInterval(function () {
       if (document.hidden) return;
@@ -133,6 +183,7 @@
       slides[atual].classList.remove('ativa');
       slides[n].classList.add('ativa');
       atual = n;
+      legenda();
     }, 3000);
   }
 

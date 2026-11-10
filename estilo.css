@@ -337,6 +337,94 @@ body.final .conf { display: none; }
   .rot-fim { padding: 0 16px; margin-bottom: 80px; }
 }
 
+/* ===== referencias de hoteis premium (Belmond, Aman, Explora, Rosewood) ===== */
+
+/* capa: legenda da foto e progresso */
+.hero-rodape { position: absolute; left: 40px; right: 40px; bottom: 34px; z-index: 2; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; pointer-events: none; }
+.hero-legenda { display: flex; align-items: baseline; gap: 10px; color: rgba(248, 244, 236, .85); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
+.hero-legenda b { font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: 0; color: var(--marfim); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.hero-legenda span { color: rgba(248, 244, 236, .55); letter-spacing: .1em; }
+.hero-legenda em { font-style: normal; margin-left: 14px; padding-left: 14px; border-left: 1px solid rgba(248, 244, 236, .35); }
+.hero-prog { display: flex; gap: 8px; }
+.hero-prog i { position: relative; width: 44px; height: 2px; background: rgba(248, 244, 236, .3); overflow: hidden; }
+.hero-prog i::after { content: ""; position: absolute; inset: 0; background: var(--creme); transform: scaleX(0); transform-origin: left; }
+.hero-prog i.feito::after { transform: scaleX(1); }
+.hero-prog i.ativo::after { animation: progresso 3s linear forwards; }
+@keyframes progresso { to { transform: scaleX(1); } }
+
+/* faixa de fatos logo abaixo da capa */
+.fatos { max-width: var(--largura); margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--linha); }
+.fato { padding: 46px 28px 42px; text-align: center; }
+.fato + .fato { border-left: 1px solid var(--linha); }
+.fato b { display: block; font-family: var(--serif); font-weight: 400; font-size: 46px; line-height: 1; color: var(--verde); font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1; }
+.fato span { display: block; margin: 12px auto 0; max-width: 220px; font-size: 14.5px; line-height: 1.5; color: var(--suave); }
+
+/* cartoes: linha de numeros */
+.card-meta { font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--bronze); margin-bottom: 10px; }
+
+/* foto de cada lugar com a cidade */
+.lugar-onde { position: absolute; left: 0; bottom: 0; z-index: 2; padding: 9px 16px 8px; background: rgba(42, 28, 20, .78); color: var(--marfim); font-size: 10.5px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; }
+
+/* como chegar */
+.chegar { background: #fff; border-top: 1px solid var(--linha); display: grid; grid-template-columns: 1fr 1.15fr; min-height: 560px; }
+.chegar-txt { padding: 110px 64px 110px 40px; width: 100%; max-width: 600px; justify-self: end; }
+.chegar-intro { margin-top: 22px; font-family: var(--serif); font-size: 22px; line-height: 1.5; color: var(--tinta); max-width: 460px; }
+.chegar-end { margin-top: 14px; font-size: 13px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--bronze); }
+.chegar-lista { list-style: none; margin: 34px 0 40px; border-top: 1px solid var(--linha); max-width: 480px; }
+.chegar-lista li { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--linha); font-size: 15.5px; color: var(--suave); }
+.chegar-lista b { font-weight: 500; color: var(--tinta); }
+.chegar-mapa { position: relative; background: var(--areia); }
+.chegar-mapa iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: saturate(.75) sepia(.12); }
+
+/* rodape em colunas */
+.rodape { text-align: left; padding: 90px 40px 0; }
+.rodape-grade { max-width: var(--largura); margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 64px; }
+.rodape img { margin: 0 0 22px; }
+.rodape-frase { margin-top: 18px; max-width: 280px; font-family: var(--serif); font-size: 19px; line-height: 1.5; color: rgba(248, 244, 236, .8); }
+.rodape-tit { font-size: 11.5px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--bronze-claro); margin-bottom: 18px; }
+.rodape-links { list-style: none; }
+.rodape-links li + li { margin-top: 10px; }
+.rodape-links a { text-decoration: none; color: rgba(248, 244, 236, .85); font-size: 15px; transition: color .2s ease; }
+.rodape-links a:hover { color: var(--creme); }
+.rodape-aviso { font-size: 13.5px; line-height: 1.7; color: rgba(248, 244, 236, .6); }
+.rodape-base { max-width: var(--largura); margin: 0 auto; padding: 26px 0 40px; border-top: 1px solid rgba(248, 244, 236, .12); display: grid; grid-template-columns: auto 1fr; gap: 40px; font-size: 12.5px; color: rgba(248, 244, 236, .5); }
+.rodape-base .creditos { margin: 0; max-width: none; text-align: right; }
+
+/* barra fixa de contato no celular */
+.barra-mob { display: none; }
+@media (max-width: 760px) {
+  .barra-mob { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 35; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(248, 244, 236, .97); backdrop-filter: blur(10px); box-shadow: 0 -1px 0 var(--linha); transform: translateY(110%); transition: transform .35s ease; }
+  .barra-mob.ver { transform: none; }
+  .barra-mob .btn-verde { flex: 1; padding: 15px 10px; }
+  .barra-direct { border-color: var(--tinta); color: var(--tinta); padding: 15px 18px; }
+}
+
+@media (max-width: 900px) {
+  .fatos { grid-template-columns: repeat(2, 1fr); }
+  .fato:nth-child(3) { border-left: 0; }
+  .fato:nth-child(n+3) { border-top: 1px solid var(--linha); }
+  .chegar { grid-template-columns: 1fr; }
+  .chegar-txt { padding: 90px 40px 60px; max-width: none; justify-self: stretch; }
+  .chegar-mapa { min-height: 380px; }
+  .rodape-grade { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .hero-rodape { left: 16px; right: 16px; bottom: 92px; justify-content: center; }
+  .hero-legenda { display: none; }
+  .hero-prog i { width: 30px; }
+  .fatos { padding: 0 16px; }
+  .fato { padding: 30px 12px 28px; }
+  .fato b { font-size: 36px; }
+  .fato span { font-size: 13.5px; }
+  .chegar-txt { padding: 72px 16px 48px; }
+  .chegar-lista li { grid-template-columns: 1fr; gap: 2px; }
+  .chegar-mapa { min-height: 320px; }
+  .rodape { padding: 70px 16px 90px; }
+  .rodape-grade { grid-template-columns: 1fr; gap: 36px; }
+  .rodape-base { grid-template-columns: 1fr; gap: 12px; }
+  .rodape-base .creditos { text-align: left; }
+}
+
 /* escala de 80% no computador (pedido do Pedro: "como se a pagina estivesse com 80%").
    Com zoom, 100vh vira 80% da tela; por isso as alturas de tela cheia vao divididas por .8 */
 @media (min-width: 1024px) {

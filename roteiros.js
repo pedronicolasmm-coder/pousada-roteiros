@@ -1,37 +1,37 @@
 /*
   TEXTOS DOS ROTEIROS
-  Edite aqui. Cada lugar tem: t = nome, d = descricao, c = observacao "a confirmar"
+  Edite aqui. Cada lugar tem: t = nome, o = cidade (aparece na foto), d = descricao, c = observacao "a confirmar"
   (aparece como etiqueta enquanto RASCUNHO = true). Quando os donos aprovarem,
   apague o campo c e troque RASCUNHO para false.
 */
 const RASCUNHO = true;
 
 const L = {
-  sitio:     { t: "Patrimônio Mundial de São Miguel Arcanjo", d: "Caminhada pelo sítio arqueológico reconhecido pela UNESCO: a igreja, a praça das reduções e os detalhes da pedra trabalhada pelos guaranis." },
-  museu:     { t: "Museu das Missões", d: "Imagens sacras esculpidas nas reduções, guardadas dentro do próprio sítio." },
-  artesanato:{ t: "Artesanato guarani", d: "Peças feitas pelas famílias guarani da região, um jeito de levar as Missões para casa.", c: "Confirmar onde e quando o artesanato fica exposto." },
-  someluz:   { t: "Espetáculo Som e Luz", d: "À noite, a história dos Sete Povos contada com luz e narração na fachada da igreja.", c: "Confirmar dias e horários do espetáculo." },
-  someluz2:  { t: "Som e Luz de novo, se quiser", d: "Quem gostou na primeira noite costuma rever com outro olhar, já conhecendo a história." },
-  cafe:      { t: "Café colonial na pousada", d: "Incluso na diária, para começar o dia sem pressa." },
-  fonte:     { t: "Fonte Missioneira", d: "Fonte de pedra do tempo das reduções, um dos cantos mais bonitos da cidade.", c: "Confirmar descrição histórica." },
-  praca:     { t: "Praça e centro da cidade", d: "Passeio a pé pelo centro de São Miguel, com tempo para um café e para as lojinhas." },
-  irmaica:   { t: "Cena Irmaicá", d: "Texto a definir com a pousada.", c: "Confirmar nome correto e o que é o lugar." },
-  antimon:   { t: "Antimonumento ao Bandeirante", d: "Obra que provoca a pensar a história das Missões pelo olhar de quem viveu aqui.", c: "Confirmar local e descrição." },
-  borraio:   { t: "Borraio", d: "Texto a definir com a pousada.", c: "Confirmar nome correto e o que é o lugar." },
-  jantar:    { t: "Jantar na cidade", d: "A pousada não serve jantar, mas indica onde comer bem em São Miguel." },
-  caaro:     { t: "Santuário do Caaró, em Caibaté", d: "Lugar de fé ligado aos mártires das Missões, com o santuário e a mata ao redor.", c: "Confirmar descrição histórica." },
-  catedral:  { t: "Catedral Angelopolitana, em Santo Ângelo", d: "A catedral inspirada na igreja de São Miguel Arcanjo, no coração de Santo Ângelo." },
-  stoangelo: { t: "Centro de Santo Ângelo", d: "Praça, comércio e almoço antes de voltar para a pousada.", c: "Confirmar outros pontos que a pousada indica em Santo Ângelo." },
-  volta:     { t: "Volta para a pousada", d: "A mesma cama todas as noites: sem fazer e desfazer mala a cada cidade." },
-  saojoao:   { t: "Sítio de São João Batista, em Entre-Ijuís", d: "Vestígios de mais uma redução dos Sete Povos, para entender como as Missões se espalhavam pela região.", c: "Confirmar horários de visitação." },
-  piscina:   { t: "Tarde na piscina da pousada", d: "Depois de uma manhã de estrada, a tarde é para descansar sem sair da pousada." },
-  saonic:    { t: "São Nicolau", d: "Um dos Sete Povos, com sítio arqueológico e paisagem do Rio Uruguai na região.", c: "Confirmar o que está aberto para visitação." },
-  saoluiz:   { t: "São Luiz Gonzaga", d: "Mais um dos Sete Povos, com memória missioneira no centro da cidade.", c: "Confirmar o que a pousada indica visitar." },
-  detalhes:  { t: "O sítio com calma", d: "Segunda visita ao Patrimônio Mundial para ver o que passa despercebido: relógio de sol, a quinta dos padres e os caminhos das reduções.", c: "Confirmar os pontos com o Zé." },
-  cotiguacu: { t: "Cotiguaçu", d: "Texto a definir com a pousada.", c: "Confirmar o que é e como visitar." },
-  livre:     { t: "Noite livre", d: "Para jantar com calma na cidade ou ficar na pousada." },
-  argentina: { t: "San Ignacio Miní, na Argentina", d: "Do outro lado do Rio Uruguai, outra redução jesuítica reconhecida pela UNESCO.", c: "Confirmar travessia, documentos e se a pousada quer sugerir este passeio." },
-  caminho:   { t: "Ou: um trecho do Caminho das Missões", d: "Para quem gosta de caminhar, um pedaço da rota a pé entre os antigos povos.", c: "Confirmar como indicar este passeio." }
+  sitio:     { t: "Patrimônio Mundial de São Miguel Arcanjo", o: "São Miguel das Missões", d: "Caminhada pelo sítio arqueológico reconhecido pela UNESCO: a igreja, a praça das reduções e os detalhes da pedra trabalhada pelos guaranis." },
+  museu:     { t: "Museu das Missões", o: "São Miguel das Missões", d: "Imagens sacras esculpidas nas reduções, guardadas dentro do próprio sítio." },
+  artesanato:{ t: "Artesanato guarani", o: "São Miguel das Missões", d: "Peças feitas pelas famílias guarani da região, um jeito de levar as Missões para casa.", c: "Confirmar onde e quando o artesanato fica exposto." },
+  someluz:   { t: "Espetáculo Som e Luz", o: "São Miguel das Missões", d: "À noite, a história dos Sete Povos contada com luz e narração na fachada da igreja.", c: "Confirmar dias e horários do espetáculo." },
+  someluz2:  { t: "Som e Luz de novo, se quiser", o: "São Miguel das Missões", d: "Quem gostou na primeira noite costuma rever com outro olhar, já conhecendo a história." },
+  cafe:      { t: "Café colonial na pousada", o: "Pousada das Missões", d: "Incluso na diária, para começar o dia sem pressa." },
+  fonte:     { t: "Fonte Missioneira", o: "São Miguel das Missões", d: "Fonte de pedra do tempo das reduções, um dos cantos mais bonitos da cidade.", c: "Confirmar descrição histórica." },
+  praca:     { t: "Praça e centro da cidade", o: "São Miguel das Missões", d: "Passeio a pé pelo centro de São Miguel, com tempo para um café e para as lojinhas." },
+  irmaica:   { t: "Cena Irmaicá", o: "São Miguel das Missões", d: "Texto a definir com a pousada.", c: "Confirmar nome correto e o que é o lugar." },
+  antimon:   { t: "Antimonumento ao Bandeirante", o: "São Miguel das Missões", d: "Obra que provoca a pensar a história das Missões pelo olhar de quem viveu aqui.", c: "Confirmar local e descrição." },
+  borraio:   { t: "Borraio", o: "São Miguel das Missões", d: "Texto a definir com a pousada.", c: "Confirmar nome correto e o que é o lugar." },
+  jantar:    { t: "Jantar na cidade", o: "São Miguel das Missões", d: "A pousada não serve jantar, mas indica onde comer bem em São Miguel." },
+  caaro:     { t: "Santuário do Caaró, em Caibaté", o: "Caibaté", d: "Lugar de fé ligado aos mártires das Missões, com o santuário e a mata ao redor.", c: "Confirmar descrição histórica." },
+  catedral:  { t: "Catedral Angelopolitana, em Santo Ângelo", o: "Santo Ângelo", d: "A catedral inspirada na igreja de São Miguel Arcanjo, no coração de Santo Ângelo." },
+  stoangelo: { t: "Centro de Santo Ângelo", o: "Santo Ângelo", d: "Praça, comércio e almoço antes de voltar para a pousada.", c: "Confirmar outros pontos que a pousada indica em Santo Ângelo." },
+  volta:     { t: "Volta para a pousada", o: "Pousada das Missões", d: "A mesma cama todas as noites: sem fazer e desfazer mala a cada cidade." },
+  saojoao:   { t: "Sítio de São João Batista, em Entre-Ijuís", o: "Entre-Ijuís", d: "Vestígios de mais uma redução dos Sete Povos, para entender como as Missões se espalhavam pela região.", c: "Confirmar horários de visitação." },
+  piscina:   { t: "Tarde na piscina da pousada", o: "Pousada das Missões", d: "Depois de uma manhã de estrada, a tarde é para descansar sem sair da pousada." },
+  saonic:    { t: "São Nicolau", o: "São Nicolau", d: "Um dos Sete Povos, com sítio arqueológico e paisagem do Rio Uruguai na região.", c: "Confirmar o que está aberto para visitação." },
+  saoluiz:   { t: "São Luiz Gonzaga", o: "São Luiz Gonzaga", d: "Mais um dos Sete Povos, com memória missioneira no centro da cidade.", c: "Confirmar o que a pousada indica visitar." },
+  detalhes:  { t: "O sítio com calma", o: "São Miguel das Missões", d: "Segunda visita ao Patrimônio Mundial para ver o que passa despercebido: relógio de sol, a quinta dos padres e os caminhos das reduções.", c: "Confirmar os pontos com o Zé." },
+  cotiguacu: { t: "Cotiguaçu", o: "Região das Missões", d: "Texto a definir com a pousada.", c: "Confirmar o que é e como visitar." },
+  livre:     { t: "Noite livre", o: "Pousada das Missões", d: "Para jantar com calma na cidade ou ficar na pousada." },
+  argentina: { t: "San Ignacio Miní, na Argentina", o: "San Ignacio, Argentina", d: "Do outro lado do Rio Uruguai, outra redução jesuítica reconhecida pela UNESCO.", c: "Confirmar travessia, documentos e se a pousada quer sugerir este passeio." },
+  caminho:   { t: "Ou: um trecho do Caminho das Missões", o: "Região das Missões", d: "Para quem gosta de caminhar, um pedaço da rota a pé entre os antigos povos.", c: "Confirmar como indicar este passeio." }
 };
 
 const D = {

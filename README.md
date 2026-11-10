@@ -13,6 +13,8 @@ A pousada sugere; não vende pacote nem roteiro.
 
 - **Textos dos roteiros:** `roteiros.js`. Cada lugar tem nome (`t`), descrição (`d`) e, quando falta confirmar, `c`.
 - **Etiquetas "a confirmar":** aparecem enquanto `RASCUNHO = true` no topo de `roteiros.js`. Depois da aprovação, trocar para `false`.
+- **Cidade de cada lugar:** campo `o` em `roteiros.js` (aparece na legenda da foto e conta as cidades de cada roteiro).
+- **Como chegar:** bloco no `index.html` com mapa do Google e tempos de viagem marcados "a confirmar".
 - **Google:** as duas páginas estão com `noindex` (rascunho). Tirar essa linha do `index.html` e do `roteiro.html` quando aprovar.
 
 ## Fotos
