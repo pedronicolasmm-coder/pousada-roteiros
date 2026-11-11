@@ -1,4 +1,7 @@
 (function () {
+  // versao dos arquivos (vem do ?v= do app.js no HTML): faz o navegador buscar fotos novas apos cada atualizacao
+  var VERSAO = (function () { var s = document.currentScript && document.currentScript.src; var m = s && /[?&]v=([^&]+)/.exec(s); return m ? m[1] : ""; })();
+  function comV(u) { return VERSAO ? u + (u.indexOf("?") < 0 ? "?" : "&") + "v=" + VERSAO : u; }
   var topo = document.getElementById('topo');
   var periodos = [['manha', 'Manhã'], ['tarde', 'Tarde'], ['noite', 'Noite']];
   var ordinais = ['Primeiro', 'Segundo', 'Terceiro', 'Quarto', 'Quinto', 'Sexto', 'Sétimo'];
@@ -20,7 +23,7 @@
       var s = document.createElement('span'); s.className = 'foto-label'; s.textContent = f.getAttribute('data-label') || ''; f.appendChild(s);
       var img = new Image();
       img.onload = function () { f.style.backgroundImage = 'url("' + img.src + '")'; f.classList.add('ok'); };
-      img.src = f.getAttribute('data-src');
+      img.src = comV(f.getAttribute('data-src'));
     });
   }
 
@@ -148,10 +151,10 @@
     if (document.getElementById('localizacao')) navE.innerHTML += '<a href="#localizacao"><small>Localização</small></a>';
     espacos.innerHTML = ESPACOS.map(function (e, k) {
       var ini = lista.length;
-      e.fotos.forEach(function (f) { lista.push({ src: f.f, leg: f.leg || e.titulo, sec: e.titulo }); });
+      e.fotos.forEach(function (f) { lista.push({ src: comV(f.f), leg: f.leg || e.titulo, sec: e.titulo }); });
       var gal = e.fotos.map(function (f, j) {
         return '<button type="button" class="gal-item' + (j === 0 ? ' gal-grande' : '') + '" data-i="' + (ini + j) + '" aria-label="Ampliar: ' + esc(f.leg || e.titulo) + '">' +
-          '<img loading="lazy" src="' + esc(f.f) + '" alt="' + esc(f.leg || e.titulo) + '"></button>';
+          '<img loading="lazy" src="' + esc(comV(f.f)) + '" alt="' + esc(f.leg || e.titulo) + '"></button>';
       }).join('');
       return '<section class="espaco' + (k % 2 ? ' espaco-alt' : '') + '" id="' + e.id + '">' +
         '<div class="espaco-cab">' +

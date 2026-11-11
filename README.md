@@ -33,6 +33,10 @@ Basta colocar o arquivo com o nome certo. Ele aparece sozinho no lugar do espaç
 
 **Lugares ainda sem foto (aparece o espaço reservado):** aldeia, artesanato, praca, irmaica, antimon, jantar, cotiguacu, caminho.
 
+## Atualizar o site
+
+Depois de mudar qualquer arquivo, troque o número `?v=` (ex.: `20261111c`) nos `<link>` e `<script>` do `index.html`, `roteiro.html` e `pousada.html`. Isso faz o navegador de quem já visitou buscar as fotos e textos novos na hora.
+
 ## Link direto para um roteiro
 
 `roteiro.html?dias=3` abre o roteiro de 3 dias. O link antigo `index.html#3-dias` redireciona para ele.
