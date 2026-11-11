@@ -28,9 +28,21 @@ const ESPACOS = [
     texto: 'Incluso na diária. Frutas, pães, frios, bolos e o que mais a cozinha preparar no dia, para começar a viagem sem pressa.',
     c: 'Confirmar horário do café e o que costuma ser servido.',
     fotos: [
+      { f: 'img/pousada/cafe-a.jpg', leg: 'Frutas, frios e pães do café colonial' },
+      { f: 'img/pousada/cafe-b.jpg', leg: 'Bolos e pães caseiros' },
       { f: 'img/pousada/cafe-1.jpg', leg: 'Mesa do café colonial' },
-      { f: 'img/roteiro-2-b.jpg', leg: 'Café colonial' },
-      { f: 'img/pousada/cafe-2.jpg', leg: 'Salão do café' }
+      { f: 'img/pousada/cafe-c.jpg', leg: 'Mesa posta no salão' },
+      { f: 'img/pousada/cafe-d.jpg', leg: 'Sucos, leite e café' }
+    ]
+  },
+  {
+    id: 'cozinha', curto: 'Cozinha e churrasco', rotulo: 'Para os hóspedes', titulo: 'Cozinha e churrasqueira',
+    texto: 'Uma cozinha equipada e uma área de churrasqueira com mesa grande, para preparar uma refeição ou fazer aquele churrasco em família.',
+    c: 'Confirmar se a cozinha e a churrasqueira são de uso dos hóspedes, horários e se precisa reservar.',
+    fotos: [
+      { f: 'img/pousada/churras-1.jpg', leg: 'Área da churrasqueira' },
+      { f: 'img/pousada/cozinha-1.jpg', leg: 'Cozinha' },
+      { f: 'img/pousada/cozinha-2.jpg', leg: 'Cozinha equipada' }
     ]
   },
   {
@@ -49,11 +61,11 @@ const ESPACOS = [
     id: 'jardins', curto: 'Jardins', rotulo: 'Áreas externas', titulo: 'Jardins e áreas externas',
     texto: 'Palmeiras, gramado e caminhos de jardim entre os apartamentos. Um lugar tranquilo para voltar no fim do dia.',
     fotos: [
-      { f: 'img/pousada/jardim-1.jpg', leg: 'Fachada da pousada' },
+      { f: 'img/pousada/jardim-4.jpg', leg: 'Fachada com palmeiras' },
+      { f: 'img/pousada/jardim-5.jpg', leg: 'Flores na entrada' },
+      { f: 'img/pousada/jardim-6.jpg', leg: 'Jardim em frente aos apartamentos' },
       { f: 'img/pousada/jardim-2.jpg', leg: 'Jardim interno' },
-      { f: 'img/cta.jpg', leg: 'Jardim entre os apartamentos' },
-      { f: 'img/roteiro-5-b.jpg', leg: 'Caminho do jardim' },
-      { f: 'img/pousada/jardim-4.jpg', leg: 'Fachada com palmeiras' }
+      { f: 'img/pousada/jardim-7.jpg', leg: 'Canteiros do jardim' }
     ]
   },
   {

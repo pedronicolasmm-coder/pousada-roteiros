@@ -561,3 +561,4 @@ body.final .conf { display: none; }
 .seletor-wrap { top: var(--topo-h, 62px); }
 @media (max-width: 760px) { .seletor-wrap { top: var(--topo-h, 56px); } }
 .nav-espacos a small { white-space: nowrap; }
+.nav-espacos { gap: 8px; }
