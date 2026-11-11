@@ -65,7 +65,7 @@ const ESPACOS = [
       { f: 'img/pousada/jardim-5.jpg', leg: 'Flores na entrada' },
       { f: 'img/pousada/jardim-6.jpg', leg: 'Jardim em frente aos apartamentos' },
       { f: 'img/pousada/jardim-2.jpg', leg: 'Jardim interno' },
-      { f: 'img/pousada/jardim-7.jpg', leg: 'Canteiros do jardim' }
+      { f: 'img/cta.jpg', leg: 'Jardim entre os apartamentos' }
     ]
   },
   {
@@ -73,7 +73,7 @@ const ESPACOS = [
     texto: 'O carro fica dentro da pousada durante toda a estadia, enquanto tu aproveita os passeios.',
     c: 'Confirmar se há vagas cobertas.',
     fotos: [
-      { f: 'img/pousada/estac-1.jpg', leg: 'Estacionamento da pousada' },
+      { f: 'img/pousada/jardim-7.jpg', leg: 'Estacionamento ao lado do jardim' },
       { f: 'img/pousada/estac-2.jpg', leg: 'Placa do estacionamento' },
       { f: 'img/pousada/estac-3.jpg', leg: 'Acesso de carro' }
     ]
