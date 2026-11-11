@@ -9,6 +9,7 @@ const RASCUNHO = true;
 const L = {
   sitio:     { t: "Patrimônio Mundial de São Miguel Arcanjo", o: "São Miguel das Missões", d: "Caminhada pelo sítio arqueológico reconhecido pela UNESCO: a igreja, a praça das reduções e os detalhes da pedra trabalhada pelos guaranis." },
   museu:     { t: "Museu das Missões", o: "São Miguel das Missões", d: "Imagens sacras esculpidas nas reduções, guardadas dentro do próprio sítio." },
+  aldeia:    { t: "Aldeia guarani Tekoá Koenju", o: "São Miguel das Missões", d: "Comunidade guarani mbyá que mantém viva a língua, o canto e o artesanato do povo que ergueu as reduções. Uma visita para ouvir e aprender, sempre combinada antes.", c: "Confirmar nome da aldeia, se recebe visitantes, como agendar e se há guia." },
   artesanato:{ t: "Artesanato guarani", o: "São Miguel das Missões", d: "Peças feitas pelas famílias guarani da região, um jeito de levar as Missões para casa.", c: "Confirmar onde e quando o artesanato fica exposto." },
   someluz:   { t: "Espetáculo Som e Luz", o: "São Miguel das Missões", d: "À noite, a história dos Sete Povos contada com luz e narração na fachada da igreja.", c: "Confirmar dias e horários do espetáculo." },
   someluz2:  { t: "Som e Luz de novo, se quiser", o: "São Miguel das Missões", d: "Quem gostou na primeira noite costuma rever com outro olhar, já conhecendo a história." },
@@ -37,7 +38,7 @@ const L = {
 const D = {
   essencial: { titulo: "O essencial de São Miguel", manha: ["sitio", "museu"], tarde: ["fonte", "praca", "artesanato"], noite: ["someluz"] },
   sitio:     { titulo: "O Patrimônio Mundial", manha: ["sitio"], tarde: ["museu", "artesanato"], noite: ["someluz"] },
-  cidade:    { titulo: "A cidade de São Miguel", manha: ["cafe", "fonte", "praca"], tarde: ["irmaica", "antimon", "borraio"], noite: ["jantar"] },
+  cidade:    { titulo: "A cidade de São Miguel", manha: ["cafe", "fonte", "praca"], tarde: ["aldeia", "irmaica", "antimon", "borraio"], noite: ["jantar"] },
   caaro:     { titulo: "Caaró e Santo Ângelo", manha: ["cafe", "caaro"], tarde: ["catedral", "stoangelo"], noite: ["volta", "someluz2"] },
   saojoao:   { titulo: "São João Batista", manha: ["cafe", "saojoao"], tarde: ["piscina"], noite: ["livre"] },
   calma:     { titulo: "Um dia sem pressa", manha: ["cafe", "detalhes"], tarde: ["cotiguacu", "piscina"], noite: ["livre"] },
