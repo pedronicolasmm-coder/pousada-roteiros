@@ -3,19 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A pousada | Pousada das Missões</title>
-<meta name="description" content="Conheça a Pousada das Missões por dentro: apartamentos e suítes, café colonial, piscina, jardins e estacionamento, em São Miguel das Missões, RS.">
+<title data-es="La posada | Pousada das Missões">A pousada | Pousada das Missões</title>
+<meta name="description" content="Conheça a Pousada das Missões por dentro: apartamentos e suítes, café colonial, piscina, jardins e estacionamento, em São Miguel das Missões, RS." data-es-content="Conocé la Pousada das Missões por dentro: habitaciones y suites, desayuno colonial, piscina, jardines y estacionamiento, en São Miguel das Missões, RS, Brasil.">
 <!-- RASCUNHO: tirar a linha abaixo quando os donos aprovarem os textos -->
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Roteiros pelas Missões | Pousada das Missões">
-<meta property="og:description" content="Ideias de roteiro de um a sete dias. Sugestões gratuitas, sem venda de pacotes.">
-<meta property="og:image" content="img/capa.jpg">
+<meta property="og:title" content="Conheça a pousada | Pousada das Missões">
+<meta property="og:description" content="Apartamentos e suítes, café colonial, cozinha e churrasqueira, piscina e jardins em São Miguel das Missões, RS.">
+<meta property="og:image" content="https://pedronicolasmm-coder.github.io/pousada-roteiros/img/pousada/capa.jpg">
+<meta property="og:url" content="https://pedronicolasmm-coder.github.io/pousada-roteiros/pousada.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="es_AR">
 <meta name="theme-color" content="#2a1c14">
-<link rel="icon" href="img/logo.png">
+<link rel="icon" href="img/icone.png">
+<link rel="apple-touch-icon" href="img/icone-180.png">
+<link rel="alternate" hreflang="pt-BR" href="https://pedronicolasmm-coder.github.io/pousada-roteiros/pousada.html">
+<link rel="alternate" hreflang="es" href="https://pedronicolasmm-coder.github.io/pousada-roteiros/pousada.html?lang=es">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="estilo.css?v=20261112h">
+<script>/* idioma antes de desenhar a pagina: espanhol se o navegador pedir ou se a pessoa escolher ES */
+(function(){var l='pt',e=0;try{var q=/[?&]lang=(pt|es)\b/.exec(location.search);if(q){l=q[1];e=1}else{var s=localStorage.getItem('lang');if(s==='pt'||s==='es'){l=s;e=1}else{var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(c.indexOf('pt')===0)break;if(c.indexOf('es')===0){l='es';break}}}}}catch(x){}
+window.IDIOMA=l;window.IDIOMA_ESCOLHIDO=e;if(l==='es'){var h=document.documentElement;h.lang='es';h.className+=' es';setTimeout(function(){h.className+=' pronto'},1500)}})();</script>
+<link rel="stylesheet" href="estilo.css?v=20261112i">
 </head>
 <body class="pag-pousada">
 
@@ -24,56 +34,56 @@
 <header class="topo" id="topo">
   <a href="index.html" class="marca"><img src="img/logo.png" alt="Pousada das Missões"></a>
   <nav class="menu">
-    <a href="index.html#roteiros" class="destaque">Roteiros</a>
-    <a href="index.html#sobre">Como funciona</a>
-    <a href="pousada.html" class="atual">Conheça a pousada</a>
-    <a href="#localizacao">Como chegar</a>
+    <a href="index.html#roteiros" class="destaque" data-es="Itinerarios">Roteiros</a>
+    <a href="index.html#sobre" data-es="Cómo funciona">Como funciona</a>
+    <a href="pousada.html" class="atual" data-es="Conocé la posada">Conheça a pousada</a>
+    <a href="#localizacao" data-es="Cómo llegar">Como chegar</a>
   </nav>
-  <nav class="topo-mob" aria-label="Atalhos"><a href="index.html#roteiros" class="destaque">Roteiros</a><a href="pousada.html" class="atual-mob">A pousada</a></nav>
-  <button type="button" class="topo-menu-btn" id="menu-btn" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  <a class="btn btn-claro btn-peq js-wa" href="https://wa.me/5555981615722" target="_blank" rel="noopener">Consultar valores</a>
+  <nav class="topo-mob" aria-label="Atalhos" data-es-aria-label="Accesos"><a href="index.html#roteiros" class="destaque" data-es="Itinerarios">Roteiros</a><a href="pousada.html" class="atual-mob" data-es="La posada">A pousada</a></nav>
+  <button type="button" class="topo-menu-btn" id="menu-btn" aria-label="Abrir menu" data-es-aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="topo-dir"><div class="idiomas" role="group" aria-label="Idioma"><a class="js-idioma" data-lang="pt" lang="pt-BR" hreflang="pt-BR" title="Português">PT</a><a class="js-idioma" data-lang="es" lang="es" hreflang="es" title="Español">ES</a></div><a class="btn btn-claro btn-peq js-wa" href="https://wa.me/5555981615722" target="_blank" rel="noopener" data-es="Consultar precios">Consultar valores</a></div>
 </header>
 
 <section class="hero rot-hero pousada-hero">
   <figure class="foto hero-foto" data-src="img/pousada/capa.jpg" data-label=""></figure>
   <div class="hero-veu"></div>
   <div class="hero-txt">
-    <a class="voltar" href="index.html">← Ideias de roteiro</a>
+    <a class="voltar" href="index.html" data-es="← Ideas de itinerario">← Ideias de roteiro</a>
     <p class="rotulo rotulo-claro">São Miguel das Missões &nbsp;·&nbsp; RS</p>
-    <h1>Conheça<br><em>a pousada</em></h1>
+    <h1 data-es="Conocé<br><em>la posada</em>">Conheça<br><em>a pousada</em></h1>
     <span class="fio"></span>
-    <p class="hero-sub">Apartamentos e suítes, café colonial, cozinha e churrasqueira, piscina e jardins. Veja cada espaço antes de chegar.</p>
+    <p class="hero-sub" data-es="Habitaciones y suites, desayuno colonial, cocina y parrilla, piscina y jardines. Mirá cada espacio antes de llegar.">Apartamentos e suítes, café colonial, cozinha e churrasqueira, piscina e jardins. Veja cada espaço antes de chegar.</p>
   </div>
 </section>
 
-<section class="fatos fatos-pousada" aria-label="Incluso na hospedagem">
-  <div class="fato"><b>Café</b><span>colonial incluso na diária</span></div>
-  <div class="fato"><b>Vaga</b><span>estacionamento incluso, dentro da pousada</span></div>
-  <div class="fato"><b>Pet</b><span>friendly: o bichinho da família é bem-vindo</span></div>
-  <div class="fato"><b>Piscina</b><span>para as tardes de calor, entre um passeio e outro</span></div>
+<section class="fatos fatos-pousada" aria-label="Incluso na hospedagem" data-es-aria-label="Incluido en el alojamiento">
+  <div class="fato"><b data-es="Desayuno">Café</b><span data-es="colonial incluido en la tarifa">colonial incluso na diária</span></div>
+  <div class="fato"><b data-es="Auto">Vaga</b><span data-es="estacionamiento incluido, dentro de la posada">estacionamento incluso, dentro da pousada</span></div>
+  <div class="fato"><b>Pet</b><span data-es="friendly: la mascota de la familia es bienvenida">friendly: o bichinho da família é bem-vindo</span></div>
+  <div class="fato"><b>Piscina</b><span data-es="para las tardes de calor, entre un paseo y otro">para as tardes de calor, entre um passeio e outro</span></div>
 </section>
 
 <div class="seletor-wrap nav-dias-wrap">
-  <nav class="seletor nav-dias nav-espacos" id="nav-espacos" aria-label="Espaços da pousada"></nav>
+  <nav class="seletor nav-dias nav-espacos" id="nav-espacos" aria-label="Espaços da pousada" data-es-aria-label="Espacios de la posada"></nav>
 </div>
 
 <main id="espacos" class="espacos"></main>
 
 <section class="chegar" id="localizacao">
   <div class="chegar-txt">
-    <p class="rotulo">Localização</p>
-    <h2>Onde fica<br><em>a pousada</em></h2>
-    <p class="chegar-intro">A pousada fica em São Miguel das Missões, no noroeste do Rio Grande do Sul. Todos os roteiros partem e voltam daqui.</p>
+    <p class="rotulo" data-es="Ubicación">Localização</p>
+    <h2 data-es="Dónde queda<br><em>la posada</em>">Onde fica<br><em>a pousada</em></h2>
+    <p class="chegar-intro" data-es="La posada está en São Miguel das Missões, en el noroeste de Rio Grande do Sul, Brasil. Todos los itinerarios salen y vuelven acá.">A pousada fica em São Miguel das Missões, no noroeste do Rio Grande do Sul. Todos os roteiros partem e voltam daqui.</p>
     <p class="chegar-end">R. São Nicolau, 601 · São Miguel das Missões, RS</p>
     <ul class="chegar-lista">
-      <li><b>Santo Ângelo</b><span>Aeroporto regional mais próximo, cerca de 1 hora de carro</span></li>
-      <li><b>Porto Alegre</b><span>Cerca de 7 horas de carro</span></li>
-      <li><b>Na chegada</b><span>Estacionamento incluso, dentro da pousada, durante toda a estadia</span></li>
+      <li><b>Santo Ângelo</b><span data-es="Aeropuerto regional más cercano, a cerca de 1 hora en auto">Aeroporto regional mais próximo, cerca de 1 hora de carro</span></li>
+      <li><b>Porto Alegre</b><span data-es="A cerca de 7 horas en auto">Cerca de 7 horas de carro</span></li>
+      <li><b data-es="Al llegar">Na chegada</b><span data-es="Estacionamiento incluido, dentro de la posada, durante toda la estadía">Estacionamento incluso, dentro da pousada, durante toda a estadia</span></li>
     </ul>
-    <a class="btn btn-escuro" href="https://www.google.com/maps/search/?api=1&amp;query=Pousada%20das%20Miss%C3%B5es%2C%20S%C3%A3o%20Miguel%20das%20Miss%C3%B5es%20RS" target="_blank" rel="noopener">Abrir no Google Maps</a>
+    <a class="btn btn-escuro" href="https://www.google.com/maps/search/?api=1&amp;query=Pousada%20das%20Miss%C3%B5es%2C%20S%C3%A3o%20Miguel%20das%20Miss%C3%B5es%20RS" target="_blank" rel="noopener" data-es="Abrir en Google Maps">Abrir no Google Maps</a>
   </div>
   <div class="chegar-mapa">
-    <iframe title="Mapa da Pousada das Missões" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Pousada%20das%20Miss%C3%B5es%2C%20S%C3%A3o%20Miguel%20das%20Miss%C3%B5es%20RS&amp;z=13&amp;output=embed"></iframe>
+    <iframe title="Mapa da Pousada das Missões" data-es-title="Mapa de la Pousada das Missões" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Pousada%20das%20Miss%C3%B5es%2C%20S%C3%A3o%20Miguel%20das%20Miss%C3%B5es%20RS&amp;z=13&amp;output=embed"></iframe>
   </div>
 </section>
 
@@ -81,21 +91,21 @@
   <figure class="foto cta-foto" data-src="img/cta.jpg" data-label=""></figure>
   <div class="hero-veu"></div>
   <div class="cta-txt">
-    <p class="rotulo rotulo-claro">Hospedagem</p>
-    <h2>Gostou do que<br><em>viu por aqui?</em></h2>
+    <p class="rotulo rotulo-claro" data-es="Alojamiento">Hospedagem</p>
+    <h2 data-es="¿Te gustó lo que<br><em>viste por acá?</em>">Gostou do que<br><em>viu por aqui?</em></h2>
     <span class="fio"></span>
-    <p class="cta-sub">Te passo os valores da tua data!<br>Me chama no WhatsApp ou no direct.</p>
+    <p class="cta-sub" data-es="¡Te paso los precios para tu fecha!<br>Escribime por WhatsApp o por mensaje directo.">Te passo os valores da tua data!<br>Me chama no WhatsApp ou no direct.</p>
     <div class="botoes">
-      <a class="btn btn-verde" href="https://wa.me/5555981615722?text=Ol%C3%A1!%20Vi%20as%20fotos%20da%20pousada%20e%20quero%20saber%20os%20valores%20para%20a%20minha%20data." target="_blank" rel="noopener">Chamar no WhatsApp</a>
-      <a class="btn btn-contorno" href="https://ig.me/m/pousadadasmissoes" target="_blank" rel="noopener">Mandar direct</a>
+      <a class="btn btn-verde" href="https://wa.me/5555981615722?text=Ol%C3%A1!%20Vi%20as%20fotos%20da%20pousada%20e%20quero%20saber%20os%20valores%20para%20a%20minha%20data." data-es-href="https://wa.me/5555981615722?text=%C2%A1Hola%21%20Vi%20las%20fotos%20de%20la%20posada%20y%20quiero%20saber%20los%20precios%20para%20mi%20fecha." target="_blank" rel="noopener" data-es="Escribir por WhatsApp">Chamar no WhatsApp</a>
+      <a class="btn btn-contorno" href="https://ig.me/m/pousadadasmissoes" target="_blank" rel="noopener" data-es="Enviar mensaje directo">Mandar direct</a>
     </div>
   </div>
 </section>
 
 <section class="roteiros outros-sec">
   <div class="roteiros-cab">
-    <p class="rotulo">Ideias de roteiro</p>
-    <h2>E para aproveitar<br><em>as Missões?</em></h2>
+    <p class="rotulo" data-es="Ideas de itinerario">Ideias de roteiro</p>
+    <h2 data-es="¿Y para disfrutar<br><em>las Misiones?</em>">E para aproveitar<br><em>as Missões?</em></h2>
   </div>
   <div class="cards" id="outros"></div>
 </section>
@@ -105,45 +115,47 @@
     <div class="rodape-marca">
       <img src="img/logo.png" alt="Pousada das Missões">
       <p class="rodape-local">São Miguel das Missões &nbsp;·&nbsp; Rio Grande do Sul</p>
-      <p class="rodape-frase">Hospedagem com café colonial em São Miguel das Missões, a terra dos Sete Povos.</p>
+      <p class="rodape-frase" data-es="Alojamiento con desayuno colonial en São Miguel das Missões, la tierra de los Siete Pueblos.">Hospedagem com café colonial em São Miguel das Missões, a terra dos Sete Povos.</p>
     </div>
     <div>
-      <p class="rodape-tit">Ideias de roteiro</p>
+      <p class="rodape-tit" data-es="Ideas de itinerario">Ideias de roteiro</p>
       <ul class="rodape-links" id="rodape-roteiros"></ul>
     </div>
     <div>
-      <p class="rodape-tit">Contato</p>
+      <p class="rodape-tit" data-es="Contacto">Contato</p>
       <ul class="rodape-links">
         <li><a href="https://wa.me/5555981615722" target="_blank" rel="noopener">WhatsApp (55) 98161 5722</a></li>
-        <li><a href="https://ig.me/m/pousadadasmissoes" target="_blank" rel="noopener">Direct do Instagram</a></li>
+        <li><a href="https://ig.me/m/pousadadasmissoes" target="_blank" rel="noopener" data-es="Mensaje directo de Instagram">Direct do Instagram</a></li>
         <li><a href="https://instagram.com/pousadadasmissoes" target="_blank" rel="noopener">@pousadadasmissoes</a></li>
         <li><a href="https://pousadadasmissoes.com.br" target="_blank" rel="noopener">pousadadasmissoes.com.br</a></li>
       </ul>
     </div>
     <div>
       <p class="rodape-tit">Importante</p>
-      <p class="rodape-aviso">A Pousada das Missões não comercializa pacotes nem roteiros turísticos. As ideias deste site são sugestões gratuitas; horários e funcionamento dos atrativos devem ser confirmados com cada um deles.</p>
+      <p class="rodape-aviso" data-es="La Pousada das Missões no comercializa paquetes ni itinerarios turísticos. Las ideas de este sitio son sugerencias gratuitas; los horarios y el funcionamiento de los atractivos deben confirmarse con cada uno de ellos.">A Pousada das Missões não comercializa pacotes nem roteiros turísticos. As ideias deste site são sugestões gratuitas; horários e funcionamento dos atrativos devem ser confirmados com cada um deles.</p>
     </div>
   </div>
   <div class="rodape-base">
     <p>© <span id="ano">2026</span> Pousada das Missões</p>
-    <p class="creditos">Fotos de terceiros via Wikimedia Commons:
-      Santuário do Caaró e arcos do sítio de São Miguel por <a href="https://commons.wikimedia.org/wiki/File:Santu%C3%A1rio_de_Caar%C3%B3_01.jpg" target="_blank" rel="noopener">Halley Pacheco de Oliveira</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.pt-br" target="_blank" rel="noopener">CC BY-SA 3.0</a>);
+    <p class="creditos"><span data-es="Fotos de terceros vía Wikimedia Commons:">Fotos de terceiros via Wikimedia Commons:</span>
+      <span data-es="Santuario de Caaró y arcos del sitio de São Miguel por">Santuário do Caaró e arcos do sítio de São Miguel por</span> <a href="https://commons.wikimedia.org/wiki/File:Santu%C3%A1rio_de_Caar%C3%B3_01.jpg" target="_blank" rel="noopener">Halley Pacheco de Oliveira</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.pt-br" target="_blank" rel="noopener">CC BY-SA 3.0</a>);
       Catedral Angelopolitana por <a href="https://commons.wikimedia.org/wiki/File:Catedral_angelopolitana_santo_angelo.jpg" target="_blank" rel="noopener">Felipe P</a>;
       São João Batista por <a href="https://commons.wikimedia.org/wiki/File:S%C3%A3o_Jo%C3%A3o_Batista_-_ru%C3%ADnas_das_miss%C3%B5es_jesu%C3%ADticas.jpg" target="_blank" rel="noopener">Laíse Barros</a>;
       São Nicolau por <a href="https://commons.wikimedia.org/wiki/File:Ruinas_sao_nicolau3.jpg" target="_blank" rel="noopener">Felipe Pretto</a>;
       San Ignacio Miní por <a href="https://commons.wikimedia.org/wiki/File:Ruins_of_San_Ignacio_Min%C3%AD_-_Church.jpg" target="_blank" rel="noopener">Fernando</a>;
-      Praça Pinheiro Machado, em Santo Ângelo, por <a href="https://commons.wikimedia.org/wiki/File:Pra%C3%A7a_Pinheiro_Machado,_Santo_%C3%82ngelo_54.jpg" target="_blank" rel="noopener">Eugenio Hansen, OFS</a>;
+      <span data-es="Plaza Pinheiro Machado, en Santo Ângelo, por">Praça Pinheiro Machado, em Santo Ângelo, por</span> <a href="https://commons.wikimedia.org/wiki/File:Pra%C3%A7a_Pinheiro_Machado,_Santo_%C3%82ngelo_54.jpg" target="_blank" rel="noopener">Eugenio Hansen, OFS</a>;
       Catedral de São Luiz Gonzaga por <a href="https://commons.wikimedia.org/wiki/File:Cathedral_Basilica_S%C3%A3o_Luiz_Gonzaga,_%D1%81ampan%C3%A1rio.jpg" target="_blank" rel="noopener">NoseySilverFox</a>
       (<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.pt-br" target="_blank" rel="noopener">CC BY-SA 4.0</a>);
-      igreja à noite por <a href="https://commons.wikimedia.org/wiki/File:Igreja_jesu%C3%ADtica_a_noite_em_S%C3%A3o_Miguel_das_Miss%C3%B5es,_RS.jpg" target="_blank" rel="noopener">Herr stahlhoefer</a> (domínio público). Demais fotos: acervo da Pousada das Missões.</p>
-    <p class="assinatura">Site desenvolvido por <a href="https://wa.me/5555991011436?text=Ol%C3%A1%20Pedro!%20Vi%20o%20site%20da%20Pousada%20das%20Miss%C3%B5es." target="_blank" rel="noopener">Pedro Munareto</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/pedro_munaretto/" target="_blank" rel="noopener">@pedro_munaretto</a> &nbsp;·&nbsp; Gestão de Instagram e tráfego pago</p>
+      <span data-es="iglesia de noche por">igreja à noite por</span> <a href="https://commons.wikimedia.org/wiki/File:Igreja_jesu%C3%ADtica_a_noite_em_S%C3%A3o_Miguel_das_Miss%C3%B5es,_RS.jpg" target="_blank" rel="noopener">Herr stahlhoefer</a> <span data-es="(dominio público). Las demás fotos: archivo de la Pousada das Missões.">(domínio público). Demais fotos: acervo da Pousada das Missões.</span></p>
+    <p class="rodape-idiomas"><a class="js-idioma" data-lang="pt" lang="pt-BR" hreflang="pt-BR">Português</a> &nbsp;·&nbsp; <a class="js-idioma" data-lang="es" lang="es" hreflang="es">Español</a></p>
+    <p class="assinatura"><span data-es="Sitio desarrollado por">Site desenvolvido por</span> <a href="https://wa.me/5555991011436?text=Ol%C3%A1%20Pedro!%20Vi%20o%20site%20da%20Pousada%20das%20Miss%C3%B5es." target="_blank" rel="noopener">Pedro Munareto</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/pedro_munaretto/" target="_blank" rel="noopener">@pedro_munaretto</a> &nbsp;·&nbsp; <span data-es="Gestión de Instagram y tráfico pago">Gestão de Instagram e tráfego pago</span></p>
   </div>
 </footer>
 <div class="faixa faixa-base" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
 
-<script src="roteiros.js?v=20261112h"></script>
-<script src="pousada-fotos.js?v=20261112h"></script>
-<script src="app.js?v=20261112h"></script>
+<script src="roteiros.js?v=20261112i"></script>
+<script src="pousada-fotos.js?v=20261112i"></script>
+<script src="es.js?v=20261112i"></script>
+<script src="app.js?v=20261112i"></script>
 </body>
 </html>

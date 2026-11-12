@@ -46,3 +46,12 @@ Depois de mudar qualquer arquivo, troque o número `?v=` (ex.: `20261111c`) nos 
 - **Acervo da pousada (Drive):** capa, hero-2 (IMG_9925), hero-4 (IMG_9906), hero-5 (IMG_9946), cta, e em `lugares/`: sitio, someluz, cafe, volta, piscina, livre.
 - **Wikimedia Commons (crédito no rodapé e em `creditos.json`):** Fonte, Caaró, Catedral Angelopolitana, São João Batista, São Nicolau, arcos do sítio, San Ignacio Miní, praça de Santo Ângelo, catedral de São Luiz Gonzaga, igreja à noite.
 - Ao trocar uma foto do Commons por uma da pousada, tirar o crédito correspondente do rodapé (`index.html` e `roteiro.html`).
+
+## Versão em espanhol
+
+- Aparece sozinha quando o navegador da pessoa está em espanhol (Argentina, Uruguai, Paraguai...). Português e outros idiomas veem em português.
+- A pessoa pode trocar no seletor **PT | ES** (topo no computador, menu no celular e rodapé). A escolha fica salva e segue nas outras páginas.
+- Link direto em espanhol: qualquer página com `?lang=es` (ex.: `index.html?lang=es`, `roteiro.html?dias=3&lang=es`). Bom para anúncio no Uruguai ou na Argentina.
+- **Onde editar:** textos fixos das páginas ficam no próprio HTML, no atributo `data-es="..."` ao lado do texto em português. Roteiros, lugares, página da pousada e frases do site ficam em `es.js`.
+- Ao mudar um texto em português, mude também a versão em espanhol. Lugar ou espaço novo sem tradução em `es.js` aparece em português.
+- No espanhol a pousada fala de "habitaciones" (quarto de hotel em espanhol) e "posada".
