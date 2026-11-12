@@ -38,7 +38,7 @@ const ESPACOS = [
     texto: 'Incluso na diária. Frutas, pães, frios, bolos e o que mais a cozinha preparar no dia. Em dias bonitos, o café também pode virar piquenique no jardim da pousada.',
     c: 'Confirmar horário do café e se o piquenique é oferecido, como pedir e se tem custo extra.',
     fotos: [
-      { f: 'img/pousada/cafe-a.jpg', leg: 'Bolos, pães caseiros e cucas do café colonial' },
+      { f: 'img/pousada/cafe-a.jpg', leg: 'Bolos, pães caseiros e folhados do café colonial' },
       { f: 'img/pousada/piq-1.jpg', leg: 'Piquenique no jardim da pousada' },
       { f: 'img/pousada/cafe-b.jpg', leg: 'Bolos e pães caseiros' },
       { f: 'img/pousada/cafe-1.jpg', leg: 'Mesa do café colonial' },
