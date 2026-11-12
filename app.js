@@ -59,7 +59,16 @@
       f.setAttribute('data-ok', '1');
       var s = document.createElement('span'); s.className = 'foto-label'; s.textContent = f.getAttribute('data-label') || ''; f.appendChild(s);
       var img = new Image();
-      img.onload = function () { f.style.backgroundImage = 'url("' + img.src + '")'; f.classList.add('ok'); };
+      img.onload = function () {
+        // capa em tela cheia: foto pequena demais para esta tela (esticaria mais de 1,6x) fica fora da troca de fotos
+        if (f.parentNode && f.parentNode.classList.contains('hero-fotos') && f.parentNode.children.length > 1 &&
+            Math.max(window.innerWidth / img.naturalWidth, window.innerHeight / img.naturalHeight) > 1.6) {
+          f.classList.add('falhou');
+          if (typeof legenda === 'function' && slides) legenda();
+          return;
+        }
+        f.style.backgroundImage = 'url("' + img.src + '")'; f.classList.add('ok');
+      };
       img.onerror = function () { f.classList.add('falhou'); if (f.classList.contains('hero-foto') && typeof legenda === 'function' && slides) legenda(); };
       img.src = comV(f.getAttribute('data-src'));
     });
@@ -255,8 +264,8 @@
     // capa rotativa: fachada + a primeira foto de cada espaco (apartamentos, suites, cafe, cozinha, piscina...)
     var heroP = document.getElementById('pousada-hero-fotos');
     if (heroP) {
-      heroP.innerHTML += ESPACOS.map(function (e) {
-        return '<figure class="foto hero-foto" data-src="' + esc(e.fotos[0].f) + '" data-legenda="' + esc(e.titulo) + '" data-label=""></figure>';
+      heroP.innerHTML += ESPACOS.filter(function (e) { return e.capa !== ''; }).map(function (e) {
+        return '<figure class="foto hero-foto" data-src="' + esc(e.capa || e.fotos[0].f) + '" data-legenda="' + esc(e.titulo) + '" data-label=""></figure>';
       }).join('');
       document.getElementById('hero-prog').innerHTML = heroP.children.length > 1 ? new Array(heroP.children.length + 1).join('<i></i>') : '';
     }

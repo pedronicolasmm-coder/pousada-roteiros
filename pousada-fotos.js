@@ -5,10 +5,11 @@
   Para trocar uma foto: substitua o arquivo em img/pousada/ ou mude o caminho aqui.
   Regra da pousada: falar "apartamentos" e "suites" (nunca "quartos").
   Galeria fecha certinho com 3, 5 ou 9 fotos.
+  capa = foto horizontal e grande (2000 px ou mais) que entra na capa rotativa do topo; '' = espaco fica fora da capa.
 */
 const ESPACOS = [
   {
-    id: 'apartamentos', curto: 'Apartamentos', rotulo: 'Hospedagem', titulo: 'Apartamentos',
+    id: 'apartamentos', capa: 'img/pousada/std-1.jpg', curto: 'Apartamentos', rotulo: 'Hospedagem', titulo: 'Apartamentos',
     texto: 'Do individual ao quádruplo, com camas arrumadas com capricho, para casais, famílias e grupos de amigos descansarem bem depois dos passeios.',
     c: 'Confirmar comodidades dos apartamentos (ar-condicionado, TV, frigobar, Wi-Fi).',
     itens: ['Individual', 'Duplo', 'Triplo', 'Quádruplo', 'Banheiro privativo'],
@@ -21,7 +22,7 @@ const ESPACOS = [
     ]
   },
   {
-    id: 'suites', curto: 'Suítes', rotulo: 'Um cuidado a mais', titulo: 'Suítes com hidromassagem',
+    id: 'suites', capa: 'img/pousada/apto-1.jpg', curto: 'Suítes', rotulo: 'Um cuidado a mais', titulo: 'Suítes com hidromassagem',
     texto: 'Suítes amplas, com banheira de hidromassagem, iluminação aconchegante e bancada com cuba dupla. Para uma viagem a dois ou uma comemoração.',
     c: 'Confirmar quantas suítes existem e as comodidades de cada uma.',
     itens: ['Banheira de hidromassagem', 'Cama de casal', 'Cuba dupla'],
@@ -34,7 +35,7 @@ const ESPACOS = [
     ]
   },
   {
-    id: 'cafe', curto: 'Café colonial', rotulo: 'Todas as manhãs', titulo: 'Café colonial',
+    id: 'cafe', capa: 'img/pousada/cafe-capa.jpg', curto: 'Café colonial', rotulo: 'Todas as manhãs', titulo: 'Café colonial',
     texto: 'Incluso na diária. Frutas, pães, frios, bolos e o que mais a cozinha preparar no dia. Em dias bonitos, o café também pode virar piquenique no jardim da pousada.',
     c: 'Confirmar horário do café e se o piquenique é oferecido, como pedir e se tem custo extra.',
     fotos: [
@@ -50,7 +51,7 @@ const ESPACOS = [
     ]
   },
   {
-    id: 'cozinha', curto: 'Cozinha e churrasco', rotulo: 'Para os hóspedes', titulo: 'Cozinha e churrasqueira',
+    id: 'cozinha', capa: 'img/pousada/churras-capa.jpg', curto: 'Cozinha e churrasco', rotulo: 'Para os hóspedes', titulo: 'Cozinha e churrasqueira',
     texto: 'Uma cozinha equipada e uma área de churrasqueira com mesa grande, para preparar uma refeição ou fazer aquele churrasco em família.',
     c: 'Confirmar se a cozinha e a churrasqueira são de uso dos hóspedes, horários e se precisa reservar.',
     fotos: [
@@ -60,7 +61,7 @@ const ESPACOS = [
     ]
   },
   {
-    id: 'piscina', curto: 'Piscina', rotulo: 'Lazer', titulo: 'Piscina',
+    id: 'piscina', capa: 'img/pousada/piscina-1.jpg', curto: 'Piscina', rotulo: 'Lazer', titulo: 'Piscina',
     texto: 'Para as tardes de calor, entre um passeio e outro, com espreguiçadeiras e mesas ao redor.',
     c: 'Confirmar horário de uso e em que meses fica aberta.',
     fotos: [
@@ -72,7 +73,7 @@ const ESPACOS = [
     ]
   },
   {
-    id: 'jardins', curto: 'Jardins', rotulo: 'Áreas externas', titulo: 'Jardins e áreas externas',
+    id: 'jardins', capa: 'img/pousada/jardim-2.jpg', curto: 'Jardins', rotulo: 'Áreas externas', titulo: 'Jardins e áreas externas',
     texto: 'Palmeiras, gramado e caminhos de jardim entre os apartamentos. Um lugar tranquilo para voltar no fim do dia.',
     fotos: [
       { f: 'img/pousada/jardim-4.jpg', leg: 'Fachada com palmeiras' },
@@ -83,7 +84,7 @@ const ESPACOS = [
     ]
   },
   {
-    id: 'estacionamento', curto: 'Estacionamento', rotulo: 'Incluso na diária', titulo: 'Estacionamento',
+    id: 'estacionamento', capa: '', curto: 'Estacionamento', rotulo: 'Incluso na diária', titulo: 'Estacionamento',
     texto: 'O carro fica dentro da pousada durante toda a estadia, enquanto tu aproveita os passeios.',
     c: 'Confirmar se há vagas cobertas.',
     fotos: [
