@@ -23,6 +23,7 @@
       var s = document.createElement('span'); s.className = 'foto-label'; s.textContent = f.getAttribute('data-label') || ''; f.appendChild(s);
       var img = new Image();
       img.onload = function () { f.style.backgroundImage = 'url("' + img.src + '")'; f.classList.add('ok'); };
+      img.onerror = function () { f.classList.add('falhou'); if (f.classList.contains('hero-foto') && typeof legenda === 'function' && slides) legenda(); };
       img.src = comV(f.getAttribute('data-src'));
     });
   }
@@ -77,7 +78,24 @@
     var msg = msgWA(r);
     document.title = r.nome + ' | Pousada das Missões';
 
-    document.getElementById('rot-hero-foto').setAttribute('data-src', 'img/roteiro-' + r.dias + '-a.jpg');
+    // capa rotativa: foto do roteiro + uma foto de cada passeio, na ordem dos dias
+    var capaFotos = r.capa ? [] : [{ src: 'img/roteiro-' + r.dias + '-a.jpg', leg: r.capaLeg || r.nome }];
+    var jaTem = {};
+    if (r.capa) { jaTem[r.capa] = 1; capaFotos.push({ src: 'img/lugares/' + r.capa + '.jpg', leg: L[r.capa].t + ' · ' + L[r.capa].o }); }
+    r.dias_.forEach(function (id, k) {
+      periodos.forEach(function (p) {
+        D[id][p[0]].forEach(function (lid) {
+          var l = L[lid];
+          if (jaTem[lid] || l.o === 'Pousada das Missões' || lid === 'jantar') return;
+          jaTem[lid] = 1;
+          capaFotos.push({ src: 'img/lugares/' + lid + '.jpg', leg: (r.dias_.length > 1 ? 'Dia ' + (k + 1) + ' · ' : '') + l.t });
+        });
+      });
+    });
+    document.getElementById('rot-hero-fotos').innerHTML = capaFotos.map(function (f, i) {
+      return '<figure class="foto hero-foto' + (i ? '' : ' ativa') + '" data-src="' + esc(f.src) + '" data-legenda="' + esc(f.leg) + '" data-label=""></figure>';
+    }).join('');
+    document.getElementById('hero-prog').innerHTML = capaFotos.map(function () { return '<i></i>'; }).join('');
     document.getElementById('rot-rotulo').textContent = 'Ideia de roteiro · ' + r.dias + ' ' + diasTxt(r.dias);
     document.getElementById('rot-titulo').textContent = r.nome;
     document.getElementById('rot-resumo').textContent = r.resumo;
@@ -162,6 +180,7 @@
           '<h2>' + esc(e.titulo) + '</h2>' +
           '<p class="espaco-txt">' + esc(e.texto) + conf(e.c) + '</p>' +
           (e.itens ? '<ul class="espaco-itens">' + e.itens.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' : '') +
+          (e.fotos.length > 1 ? '<button type="button" class="gal-todas espaco-ver" data-i="' + ini + '">Ver as ' + e.fotos.length + ' fotos em tela cheia</button>' : '') +
         '</div>' +
         '<div class="galeria gal-' + Math.min(e.fotos.length, 7) + '">' + gal + '</div>' +
         (e.fotos.length > 1 ? '<p class="gal-ver"><button type="button" class="gal-todas" data-i="' + ini + '">Ver as ' + e.fotos.length + ' fotos em tela cheia</button></p>' : '') +
@@ -274,11 +293,19 @@
   var atual = 0;
   var semMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var prog = document.querySelectorAll('#hero-prog i');
+  // numero e total contam so as fotos que existem (foto que nao abriu sai da conta e da barra)
   function legenda() {
-    var hn = document.getElementById('hero-n'), hl = document.getElementById('hero-leg');
-    if (hn) hn.textContent = (atual < 9 ? '0' : '') + (atual + 1);
+    var hn = document.getElementById('hero-n'), hl = document.getElementById('hero-leg'), ht = document.getElementById('hero-tot');
+    var pos = 0, tot = 0;
+    Array.prototype.forEach.call(slides, function (s, i) {
+      if (s.classList.contains('falhou')) return;
+      tot++; if (i <= atual) pos = tot;
+    });
+    if (hn) hn.textContent = (pos < 10 ? '0' : '') + pos;
+    if (ht) ht.textContent = '/ ' + tot;
     if (hl) hl.textContent = slides[atual].getAttribute('data-legenda') || '';
     Array.prototype.forEach.call(prog, function (p, i) {
+      p.style.display = slides[i] && slides[i].classList.contains('falhou') ? 'none' : '';
       p.classList.remove('ativo'); p.classList.toggle('feito', i < atual);
       if (i === atual) { void p.offsetWidth; p.classList.add('ativo'); }
     });

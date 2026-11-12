@@ -572,3 +572,31 @@ body.final .conf { display: none; }
   .nav-espacos a { flex: 0 0 auto; padding: 20px 16px 18px; }
   .nav-espacos a::after { left: 16px; right: 16px; }
 }
+
+/* ===== pousada no computador: texto parado numa coluna ao lado das fotos, area mais larga ===== */
+.espaco-ver { display: none; }
+@media (min-width: 1024px) {
+  .espaco { display: grid; grid-template-columns: 430px minmax(0, 1fr); column-gap: 88px; align-items: start; padding: 120px max(56px, calc((100% - 1720px) / 2)); }
+  .espaco-cab { grid-column: 1; grid-row: 1; display: block; max-width: none; margin: 0; position: sticky; top: calc(var(--topo-h, 62px) + 100px); }
+  .espaco-cab h2 { margin-top: 16px; font-size: 56px; }
+  .espaco-txt { margin-top: 28px; }
+  .espaco-itens { margin-top: 30px; }
+  .espaco-ver { display: inline-block; margin-top: 38px; }
+  .galeria { grid-column: 2; grid-row: 1; max-width: none; margin: 0; grid-auto-rows: clamp(170px, 14vw, 250px); }
+  .gal-3 { grid-auto-rows: clamp(190px, 15vw, 280px); }
+  .gal-ver { display: none; }
+  .espaco-alt { grid-template-columns: minmax(0, 1fr) 430px; }
+  .espaco-alt .espaco-cab { grid-column: 2; }
+  .espaco-alt .galeria { grid-column: 1; }
+}
+
+/* ===== capa rotativa dos roteiros: fotos dos passeios do roteiro escolhido ===== */
+.rot-hero .hero-rodape { bottom: 100px; }
+.rot-hero .hero-legenda { flex: 0 0 auto; }
+.rot-hero .hero-prog { min-width: 0; flex: 0 1 auto; gap: 6px; }
+.rot-hero .hero-prog i { flex: 0 1 30px; min-width: 6px; }
+@media (max-width: 760px) {
+  .rot-hero .hero-rodape { bottom: 64px; }
+  .rot-hero .hero-prog { gap: 5px; }
+  .rot-hero .hero-prog i { flex-basis: 18px; }
+}
