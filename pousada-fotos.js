@@ -35,7 +35,7 @@ const ESPACOS = [
     ]
   },
   {
-    id: 'cafe', capa: 'img/pousada/cafe-capa.jpg', curto: 'O melhor café da região', rotulo: 'Todas as manhãs', titulo: 'O melhor café da região',
+    id: 'cafe', capa: '', curto: 'O melhor café da região', rotulo: 'Todas as manhãs', titulo: 'O melhor café da região',
     texto: 'Incluso na diária. Frutas, pães, frios, bolos e o que mais a cozinha preparar no dia. Em dias bonitos, o café também pode virar piquenique no jardim da pousada.',
     c: 'Confirmar horário do café e se o piquenique é oferecido, como pedir e se tem custo extra.',
     fotos: [
