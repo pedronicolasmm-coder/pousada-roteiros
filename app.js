@@ -154,19 +154,23 @@
       return h + '</div></section>';
     }).join('');
 
-    // no resumo do dia, destaca o passeio que esta na tela
+    // resumo do dia como trajeto: passeios ja vistos preenchidos, o da tela em verde, os proximos vazados
     if ('IntersectionObserver' in window) {
       var obsL = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
           var a = pag.querySelector('.dia-resumo a[href="#' + e.target.id + '"]');
           if (!a) return;
-          Array.prototype.forEach.call(a.closest('.dia-resumo').querySelectorAll('a'), function (x) { x.classList.toggle('ativo', x === a); });
+          var itens = a.closest('.dia-resumo').querySelectorAll('li'), at = a.parentNode, passou = true;
+          Array.prototype.forEach.call(itens, function (li) {
+            if (li === at) passou = false;
+            li.classList.toggle('feito', passou);
+            li.classList.toggle('ativo', li === at);
+          });
         });
       }, { rootMargin: '-40% 0px -55% 0px' });
       Array.prototype.forEach.call(pag.querySelectorAll('.lugar'), function (s) { obsL.observe(s); });
     }
-
     // outros roteiros
     document.getElementById('outros').innerHTML = ROTEIROS.filter(function (o) { return o !== r; }).map(cartao).join('');
 
