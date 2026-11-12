@@ -471,15 +471,39 @@
   }
   Array.prototype.forEach.call(document.querySelectorAll('.js-idioma'), function (a) {
     var l = a.getAttribute('data-lang');
-    a.href = comLang((location.pathname.split('/').pop() || 'index.html') + location.search + location.hash, l);
+    a.href = comLang((location.pathname.split('/').pop() || 'index.html') + location.search, l);
     a.classList.toggle('atual', l === LANG);
     if (l === LANG) a.setAttribute('aria-current', 'true');
   });
   // quem escolheu o idioma continua nele ao passar de uma pagina para outra (mesmo sem memoria do navegador)
   if (window.IDIOMA_ESCOLHIDO) {
-    Array.prototype.forEach.call(document.querySelectorAll('a[href^="index.html"], a[href^="roteiro.html"], a[href^="pousada.html"]'), function (a) {
+    Array.prototype.forEach.call(document.querySelectorAll('a[href^="index.html"], a[href^="roteiro.html"], a[href^="pousada.html"], a[href^="pontos.html"]'), function (a) {
       if (!a.classList.contains('js-idioma')) a.setAttribute('href', comLang(a.getAttribute('href'), LANG));
     });
   }
+
+  // O site abre sempre no topo (pedido do Pedro, 12/11/2026). So vai direto a uma secao quem clicou num link
+  // do proprio site (menu, "Saiba mais"). Depois do salto o #secao sai do endereco: recarregar, trocar PT/ES
+  // ou abrir pelo historico do navegador comeca no topo de novo.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  var navInfo = (window.performance && performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+  var pastaSite = location.href.split('#')[0].split('?')[0].replace(/[^\/]*$/, '');
+  var mexeu = false;
+  ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) {
+    window.addEventListener(ev, function () { mexeu = true; }, { passive: true });
+  });
+  function semHash() { if (location.hash) history.replaceState(history.state, '', location.pathname + location.search); }
+  function noTopo() { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+  var alvo = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (alvo && navInfo.type === 'navigate' && document.referrer.indexOf(pastaSite) === 0) {
+    var irAlvo = function () { if (!mexeu) alvo.scrollIntoView({ block: 'start', behavior: 'instant' }); };
+    irAlvo();
+    window.addEventListener('load', function () { irAlvo(); setTimeout(semHash, 400); });
+  } else if (location.hash || navInfo.type === 'reload' || navInfo.type === 'back_forward') {
+    semHash(); noTopo();
+    window.addEventListener('load', function () { if (!mexeu) { noTopo(); setTimeout(function () { if (!mexeu) noTopo(); }, 50); } });
+  }
+  window.addEventListener('hashchange', function () { setTimeout(semHash, 900); });
+
   document.documentElement.classList.add('pronto');
 })();
