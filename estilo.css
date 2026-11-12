@@ -604,10 +604,11 @@ body.final .conf { display: none; }
 /* ===== roteiro no computador: resumo do dia parado ao lado dos passeios, area mais larga ===== */
 .dia-resumo { display: none; }
 @media (min-width: 1024px) {
-  .roteiro-dias { max-width: 1832px; padding: 0 56px; }
-  .dia-sec { display: grid; grid-template-columns: clamp(300px, 22vw, 400px) minmax(0, 1fr); column-gap: 88px; align-items: start; padding: 110px 0 30px; }
-  .dia-cab { position: sticky; top: calc(var(--topo-h, 62px) + 110px); text-align: left; margin: 0; }
-  .dia-cab h2 { font-size: 50px; margin-top: 14px; }
+  .roteiro-dias { max-width: none; padding: 0 56px; }
+  .dia-sec { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(0, 1240px) minmax(0, 1fr); column-gap: 48px; align-items: start; padding: 110px 0 30px; }
+  .dia-cab { grid-column: 1; justify-self: start; width: 100%; max-width: 340px; position: sticky; top: calc(var(--topo-h, 62px) + 110px); text-align: left; margin: 0; }
+  .dia-lugares { grid-column: 2; }
+  .dia-cab h2 { font-size: 44px; margin-top: 14px; }
   .dia-resumo { display: block; margin-top: 36px; border-top: 1px solid var(--linha); }
   .dia-per { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--linha); }
   .dia-per > p { font-family: var(--serif); font-style: italic; font-size: 20px; line-height: 1.4; color: var(--bronze); }
