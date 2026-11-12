@@ -31,7 +31,7 @@ Basta colocar o arquivo com o nome certo. Ele aparece sozinho no lugar do espaç
 | `img/lugares/<chave>.jpg` | Foto de cada lugar dentro do roteiro. A chave é o nome do lugar em `roteiros.js` (ex.: `museu`, `praca`, `caaro`) |
 | `img/cta.jpg` | Fundo do convite final |
 
-**Lugares ainda sem foto (aparece o espaço reservado):** aldeia, artesanato, praca, irmaica, antimon, jantar, cotiguacu, caminho.
+**Lugares ainda sem foto (aparece o espaço reservado):** irmaica, jantar, cotiguacu.
 
 ## Atualizar o site
 

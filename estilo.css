@@ -562,3 +562,13 @@ body.final .conf { display: none; }
 @media (max-width: 760px) { .seletor-wrap { top: var(--topo-h, 56px); } }
 .nav-espacos a small { white-space: nowrap; }
 .nav-espacos { gap: 8px; }
+
+/* assinatura do criador do site, na ultima linha */
+.rodape-base .assinatura { grid-column: 1 / -1; margin-top: 6px; padding-top: 18px; border-top: 1px solid rgba(248, 244, 236, .08); text-align: center; font-size: 12px; letter-spacing: .06em; color: rgba(248, 244, 236, .45); }
+.rodape-base .assinatura a { color: var(--creme); text-decoration: none; border-bottom: 1px solid rgba(253, 213, 155, .4); padding-bottom: 1px; }
+.rodape-base .assinatura a:hover { border-color: var(--creme); }
+@media (min-width: 761px) {
+  .nav-espacos { justify-content: center; flex-wrap: wrap; gap: 0 6px; }
+  .nav-espacos a { flex: 0 0 auto; padding: 20px 16px 18px; }
+  .nav-espacos a::after { left: 16px; right: 16px; }
+}
