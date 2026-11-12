@@ -56,7 +56,7 @@ const PONTOS = [
     titulo: ['Antimonumento ao Bandeirante', 'Antimonumento al Bandeirante'],
     fotos: [['img/lugares/antimon.jpg', 'A cabeça do bandeirante afundada no chão', 'La cabeza del bandeirante hundida en el suelo']] },
   { id: 'borraio', mapa: 'Borraio Minhas Origens, São Miguel das Missões, RS', grupo: 'sm',
-    titulo: ['Borraio', 'Borraio'],
+    titulo: ['Borraio Minhas Origens', 'Borraio Minhas Origens'],
     fotos: [
       ['img/lugares/borraio.jpg', 'O galpão do Borraio', 'El galpón del Borraio'],
       ['img/pontos/borraio-2.jpg', 'Rádios, televisores e lembranças antigas', 'Radios, televisores y recuerdos antiguos']
@@ -70,7 +70,7 @@ const PONTOS = [
     titulo: ['Catedral Angelopolitana', 'Catedral Angelopolitana'],
     fotos: [
       ['img/lugares/catedral.jpg', 'Catedral Angelopolitana, em Santo Ângelo', 'Catedral Angelopolitana, en Santo Ângelo'],
-      ['img/lugares/stoangelo.jpg', 'Praça Pinheiro Machado, no centro de Santo Ângelo', 'Plaza Pinheiro Machado, en el centro de Santo Ângelo']
+      ['img/lugares/stoangelo.jpg', 'Praça Pinheiro Machado, com a Catedral ao fundo', 'Plaza Pinheiro Machado, con la Catedral al fondo']
     ] },
   { id: 'saojoao', mapa: 'Sítio Arqueológico de São João Batista, Entre-Ijuís, RS', grupo: 'regiao',
     titulo: ['Sítio de São João Batista', 'Sitio de São João Batista'],
