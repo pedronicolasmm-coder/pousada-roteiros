@@ -661,3 +661,9 @@ html.es.pronto body { opacity: 1; transition: opacity .2s ease; }
   :root { --largura: 1440px; }
   .pousada { padding-left: max(56px, calc((100% - 1280px) / 2)); padding-right: max(56px, calc((100% - 1280px) / 2)); }
 }
+
+/* capa rotativa da pagina da pousada (sem faixa de informacoes por cima, legenda mais embaixo) */
+.pousada-hero .hero-rodape { bottom: 38px; }
+@media (max-width: 760px) { .pousada-hero .hero-rodape { bottom: 40px; } }
+/* seletor de idioma mais facil de ver */
+.idiomas a { font-size: 12px; opacity: .8; }

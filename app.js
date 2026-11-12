@@ -24,7 +24,8 @@
   };
   var periodos = [['manha', U.manha], ['tarde', U.tarde], ['noite', U.noite]];
   var ordinais = U.ordinais;
-  try { if (window.IDIOMA_ESCOLHIDO) localStorage.setItem('lang', LANG); } catch (e) {}
+  // a escolha vale so enquanto a pessoa navega (aba aberta); numa visita nova volta a seguir o idioma do navegador
+  try { if (window.IDIOMA_ESCOLHIDO) sessionStorage.setItem('lang', LANG); } catch (e) {}
   if (LANG === 'es') {
     // textos fixos das paginas (atributos data-es no HTML)
     Array.prototype.forEach.call(document.querySelectorAll('[data-es]'), function (el) { el.innerHTML = el.getAttribute('data-es'); });
@@ -250,6 +251,15 @@
         (e.fotos.length > 1 ? '<p class="gal-ver"><button type="button" class="gal-todas" data-i="' + ini + '">' + U.verFotos.replace('{n}', e.fotos.length) + '</button></p>' : '') +
       '</section>';
     }).join('');
+
+    // capa rotativa: fachada + a primeira foto de cada espaco (apartamentos, suites, cafe, cozinha, piscina...)
+    var heroP = document.getElementById('pousada-hero-fotos');
+    if (heroP) {
+      heroP.innerHTML += ESPACOS.map(function (e) {
+        return '<figure class="foto hero-foto" data-src="' + esc(e.fotos[0].f) + '" data-legenda="' + esc(e.titulo) + '" data-label=""></figure>';
+      }).join('');
+      document.getElementById('hero-prog').innerHTML = heroP.children.length > 1 ? new Array(heroP.children.length + 1).join('<i></i>') : '';
+    }
 
     // visualizador
     var lb = document.createElement('div');
