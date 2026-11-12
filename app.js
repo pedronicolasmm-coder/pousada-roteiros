@@ -121,16 +121,27 @@
     var lado = 0;
     pag.innerHTML = r.dias_.map(function (id, k) {
       var d = D[id];
+      // resumo do dia (coluna fixa no computador): manha, tarde e noite com atalho para cada passeio
+      var n = 0, resumo = '';
+      periodos.forEach(function (p) {
+        if (!d[p[0]].length) return;
+        resumo += '<div class="dia-per"><p>' + p[1] + '</p><ul>' + d[p[0]].map(function (lid) {
+          n++;
+          return '<li><a href="#d' + (k + 1) + '-' + n + '">' + esc(L[lid].t) + '</a></li>';
+        }).join('') + '</ul></div>';
+      });
       var h = '<section class="dia-sec" id="dia-' + (k + 1) + '">' +
         '<header class="dia-cab">' +
           '<p class="rotulo">' + (r.dias_.length > 1 ? ordinais[k] + ' dia' : 'O dia') + '</p>' +
           '<h2>' + esc(d.titulo) + '</h2>' +
-        '</header>';
+          '<nav class="dia-resumo" aria-label="Passeios do dia">' + resumo + '</nav>' +
+        '</header><div class="dia-lugares">';
+      n = 0;
       periodos.forEach(function (p) {
         d[p[0]].forEach(function (lid) {
           var l = L[lid];
-          lado++;
-          h += '<article class="lugar' + (lado % 2 === 0 ? ' lugar-inv' : '') + '">' +
+          lado++; n++;
+          h += '<article class="lugar' + (lado % 2 === 0 ? ' lugar-inv' : '') + '" id="d' + (k + 1) + '-' + n + '">' +
             '<figure class="foto lugar-foto" data-src="img/lugares/' + lid + '.jpg" data-label="Foto: ' + esc(l.t) + '"><figcaption class="lugar-onde">' + esc(l.o) + '</figcaption></figure>' +
             '<div class="lugar-txt">' +
               '<p class="lugar-periodo">' + p[1] + '</p>' +
@@ -140,8 +151,21 @@
           '</article>';
         });
       });
-      return h + '</section>';
+      return h + '</div></section>';
     }).join('');
+
+    // no resumo do dia, destaca o passeio que esta na tela
+    if ('IntersectionObserver' in window) {
+      var obsL = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var a = pag.querySelector('.dia-resumo a[href="#' + e.target.id + '"]');
+          if (!a) return;
+          Array.prototype.forEach.call(a.closest('.dia-resumo').querySelectorAll('a'), function (x) { x.classList.toggle('ativo', x === a); });
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      Array.prototype.forEach.call(pag.querySelectorAll('.lugar'), function (s) { obsL.observe(s); });
+    }
 
     // outros roteiros
     document.getElementById('outros').innerHTML = ROTEIROS.filter(function (o) { return o !== r; }).map(cartao).join('');
