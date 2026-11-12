@@ -22,7 +22,7 @@
     consultarWA: 'Consultar valores no WhatsApp', mandarDirect: 'Mandar direct',
     consultar: 'Consultar valores', direct: 'Direct',
     grupoSM: 'Em São Miguel das Missões', grupoRegiao: 'Pela região', nosRoteiros: 'Aparece nos roteiros de',
-    todosPontos: '↑ Todos os pontos', verPonto: 'Saiba mais sobre este ponto', fotosPontos: 'Fotos dos pontos turísticos',
+    todosPontos: '↑ Todos os pontos', verMapa: 'Ver no mapa', verPonto: 'Saiba mais sobre este ponto', fotosPontos: 'Fotos dos pontos turísticos',
     waPontos: 'Olá! Vi os pontos turísticos e quero saber os valores da hospedagem para a minha data.'
   };
   var periodos = [['manha', U.manha], ['tarde', U.tarde], ['noite', U.noite]];
@@ -246,7 +246,7 @@
     return PONTOS.map(function (p) {
       var l = L[p.id] || { t: '', o: '', d: '' };
       return {
-        id: p.id, grupo: p.grupo, capa: p.capa,
+        id: p.id, grupo: p.grupo, capa: p.capa, mapa: p.mapa,
         titulo: (p.titulo && p.titulo[es ? 1 : 0]) || l.t,
         rotulo: onde(l.o), texto: l.d, c: l.c,
         itens: (p.itens || []).map(function (i) { return i[es ? 1 : 0]; }),
@@ -289,7 +289,10 @@
       }).join('');
       return '<section class="espaco' + (k % 2 ? ' espaco-alt' : '') + '" id="' + e.id + '">' +
         '<div class="espaco-cab">' +
-          '<p class="rotulo">' + esc(e.rotulo) + '</p>' +
+          (e.mapa ? '<div class="espaco-local"><p class="rotulo">' + esc(e.rotulo) + '</p>' +
+            '<a class="espaco-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=' + encodeURIComponent(e.mapa) + '" title="' + esc(e.titulo) + ' · Google Maps">' +
+            '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>' + U.verMapa + '</a></div>'
+            : '<p class="rotulo">' + esc(e.rotulo) + '</p>') +
           '<h2>' + esc(e.titulo) + '</h2>' +
           '<p class="espaco-txt">' + esc(e.texto) + conf(e.c) + '</p>' +
           (e.itens && e.itens.length ? '<ul class="espaco-itens">' + e.itens.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' : '') +

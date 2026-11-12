@@ -711,3 +711,10 @@ html.es.pronto body { opacity: 1; transition: opacity .2s ease; }
   .gal-1 { grid-auto-rows: 240px; }
   .gal-2 .gal-item, .gal-2 .gal-grande { grid-column: span 2; grid-row: span 2; }
 }
+
+/* alfinete "Ver no mapa" ao lado da cidade de cada ponto turistico */
+.espaco-local { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.espaco-local .rotulo { margin: 0; }
+.espaco-mapa { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px 5px 9px; border: 1px solid var(--verde); border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--verde); text-decoration: none; transition: background .2s ease, color .2s ease; }
+.espaco-mapa svg { flex: 0 0 auto; }
+.espaco-mapa:hover { background: var(--verde); color: #fff; }

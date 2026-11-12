@@ -24,7 +24,7 @@ const ES = {
     consultarWA: 'Consultar precios por WhatsApp', mandarDirect: 'Enviar mensaje directo',
     consultar: 'Consultar precios', direct: 'Instagram',
     grupoSM: 'En São Miguel das Missões', grupoRegiao: 'Por la región', nosRoteiros: 'Aparece en los itinerarios de',
-    todosPontos: '↑ Todos los atractivos', verPonto: 'Más sobre este lugar', fotosPontos: 'Fotos de los atractivos turísticos',
+    todosPontos: '↑ Todos los atractivos', verMapa: 'Ver en el mapa', verPonto: 'Más sobre este lugar', fotosPontos: 'Fotos de los atractivos turísticos',
     waPontos: '¡Hola! Vi los atractivos turísticos y quiero saber los precios del alojamiento para mi fecha.'
   },
 
