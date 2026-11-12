@@ -291,7 +291,7 @@
         '<div class="espaco-cab">' +
           (e.mapa ? '<div class="espaco-local"><p class="rotulo">' + esc(e.rotulo) + '</p>' +
             '<a class="espaco-mapa" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=' + encodeURIComponent(e.mapa) + '" title="' + esc(e.titulo) + ' · Google Maps">' +
-            '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>' + U.verMapa + '</a></div>'
+            '<svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="#fff" fill-rule="evenodd" d="M12 1.5a7.5 7.5 0 0 0-7.5 7.5c0 5.6 7.5 13.5 7.5 13.5s7.5-7.9 7.5-13.5A7.5 7.5 0 0 0 12 1.5zm0 4.6a2.9 2.9 0 1 0 0 5.8 2.9 2.9 0 0 0 0-5.8z"/></svg>' + U.verMapa + '</a></div>'
             : '<p class="rotulo">' + esc(e.rotulo) + '</p>') +
           '<h2>' + esc(e.titulo) + '</h2>' +
           '<p class="espaco-txt">' + esc(e.texto) + conf(e.c) + '</p>' +

@@ -715,6 +715,6 @@ html.es.pronto body { opacity: 1; transition: opacity .2s ease; }
 /* alfinete "Ver no mapa" ao lado da cidade de cada ponto turistico */
 .espaco-local { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
 .espaco-local .rotulo { margin: 0; }
-.espaco-mapa { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px 5px 9px; border: 1px solid var(--verde); border-radius: 999px; font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--verde); text-decoration: none; transition: background .2s ease, color .2s ease; }
+.espaco-mapa { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px 8px 11px; background: #c8312b; border: 0; border-radius: 999px; box-shadow: 0 3px 10px rgba(200, 49, 43, .28); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #fff; text-decoration: none; transition: background .2s ease, box-shadow .2s ease, transform .2s ease; }
 .espaco-mapa svg { flex: 0 0 auto; }
-.espaco-mapa:hover { background: var(--verde); color: #fff; }
+.espaco-mapa:hover { background: #a3241f; box-shadow: 0 5px 14px rgba(163, 36, 31, .34); transform: translateY(-1px); }
