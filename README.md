@@ -55,3 +55,15 @@ Depois de mudar qualquer arquivo, troque o número `?v=` (ex.: `20261111c`) nos 
 - **Onde editar:** textos fixos das páginas ficam no próprio HTML, no atributo `data-es="..."` ao lado do texto em português. Roteiros, lugares, página da pousada e frases do site ficam em `es.js`.
 - Ao mudar um texto em português, mude também a versão em espanhol. Lugar ou espaço novo sem tradução em `es.js` aparece em português.
 - No espanhol a pousada fala de "habitaciones" (quarto de hotel em espanhol) e "posada".
+
+## Página dos pontos turísticos (`pontos.html`)
+
+- Um cartão por ponto no topo (índice) e, abaixo, uma parte para cada ponto com texto, etiquetas, "aparece nos roteiros de" e galeria.
+- **Onde editar:** `pontos.js` (grupo, nome em português e espanhol, etiquetas e fotos com legenda). Cidade e texto vêm do `roteiros.js`, pelo mesmo id do lugar.
+- Nas páginas de roteiro, cada passeio que tem página própria ganha o link "Saiba mais sobre este ponto".
+- Fotos extras dos pontos ficam em `img/pontos/`. Galeria fecha certinho com 1, 2, 3, 5 ou 9 fotos.
+
+## Capas rotativas e qualidade das fotos
+
+- Toda capa em tela cheia pula sozinha a foto que ficaria esticada demais naquela tela (mais de 1,6x). Ela continua aparecendo no passeio, só sai da capa.
+- Para a capa ficar boa, use fotos horizontais com 2000 px ou mais de largura.

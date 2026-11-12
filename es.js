@@ -22,7 +22,10 @@ const ES = {
     fotosPousada: 'Fotos de la posada', fechar: 'Cerrar', fotoAnt: 'Foto anterior', fotoProx: 'Foto siguiente',
     passeiosDia: 'Paseos del día', menu: 'Menú', fecharMenu: 'Cerrar menú',
     consultarWA: 'Consultar precios por WhatsApp', mandarDirect: 'Enviar mensaje directo',
-    consultar: 'Consultar precios', direct: 'Instagram'
+    consultar: 'Consultar precios', direct: 'Instagram',
+    grupoSM: 'En São Miguel das Missões', grupoRegiao: 'Por la región', nosRoteiros: 'Aparece en los itinerarios de',
+    todosPontos: '↑ Todos los atractivos', verPonto: 'Más sobre este lugar', fotosPontos: 'Fotos de los atractivos turísticos',
+    waPontos: '¡Hola! Vi los atractivos turísticos y quiero saber los precios del alojamiento para mi fecha.'
   },
 
   // nome da regiao que aparece na foto (cidades ficam com o nome original)

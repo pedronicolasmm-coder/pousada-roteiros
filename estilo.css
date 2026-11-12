@@ -667,3 +667,47 @@ html.es.pronto body { opacity: 1; transition: opacity .2s ease; }
 @media (max-width: 760px) { .pousada-hero .hero-rodape { bottom: 40px; } }
 /* seletor de idioma mais facil de ver */
 .idiomas a { font-size: 12px; opacity: .8; }
+
+/* ===== pagina dos pontos turisticos ===== */
+.indice { background: #fff; padding: 120px 40px 110px; border-bottom: 1px solid var(--linha); }
+#indice-pontos { max-width: var(--largura); margin: 64px auto 0; }
+.indice-grupo + .indice-grupo { margin-top: 56px; }
+.indice-tit { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; font-family: var(--serif); font-style: italic; font-size: 24px; color: var(--bronze); }
+.indice-tit::after { content: ""; flex: 1; height: 1px; background: var(--linha); }
+.indice-cards { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 22px; }
+.indice-card { display: block; text-decoration: none; color: inherit; background: var(--marfim); transition: transform .3s ease, box-shadow .3s ease; }
+.indice-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(42, 28, 20, .12); }
+.indice-foto { aspect-ratio: 4 / 3; }
+.indice-foto::before { inset: 8px; }
+.indice-card span { display: block; padding: 14px 16px 16px; }
+.indice-card b { display: block; font-family: var(--serif); font-size: 21px; font-weight: 500; line-height: 1.2; color: var(--tinta); }
+.indice-card small { display: block; margin-top: 6px; font-size: 10.5px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--verde); }
+.pag-pontos .espaco { scroll-margin-top: calc(var(--topo-h, 62px) + 10px); }
+.espaco-roteiros { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.espaco-roteiros span { width: 100%; font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--suave); }
+.espaco-roteiros a { padding: 7px 13px; border: 1px solid var(--verde); color: var(--verde); font-size: 12.5px; font-weight: 500; text-decoration: none; transition: background .2s ease, color .2s ease; }
+.espaco-roteiros a:hover { background: var(--verde); color: #fff; }
+.espaco-topo { display: inline-block; margin-top: 26px; font-size: 11px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--suave); text-decoration: none; }
+.espaco-topo:hover { color: var(--verde); }
+.espaco-ver + .espaco-topo { margin-left: 22px; }
+/* galerias de 1 e 2 fotos */
+.gal-1 { grid-template-columns: 1fr; grid-auto-rows: clamp(260px, 30vw, 560px); }
+.gal-1 .gal-grande { grid-column: auto; grid-row: auto; }
+.gal-2 { grid-template-columns: 2fr 1fr; grid-auto-rows: clamp(150px, 14vw, 280px); }
+.gal-2 .gal-grande { grid-column: 1; grid-row: span 2; }
+.gal-2 .gal-item:nth-child(2) { grid-row: span 2; }
+/* link "saiba mais" nos passeios da pagina do roteiro */
+.lugar-mais { display: inline-block; margin-top: 18px; font-size: 11.5px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--verde); text-decoration: none; border-bottom: 1px solid var(--bronze-claro); padding-bottom: 3px; }
+.lugar-mais i { font-style: normal; transition: margin .2s ease; }
+.lugar-mais:hover i { margin-left: 4px; }
+@media (max-width: 1100px) { .indice-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .indice { padding: 80px 16px 72px; }
+  #indice-pontos { margin-top: 40px; }
+  .indice-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .indice-card b { font-size: 17px; }
+  .indice-card span { padding: 10px 12px 12px; }
+  .indice-tit { font-size: 20px; }
+  .gal-1 { grid-auto-rows: 240px; }
+  .gal-2 .gal-item, .gal-2 .gal-grande { grid-column: span 2; grid-row: span 2; }
+}

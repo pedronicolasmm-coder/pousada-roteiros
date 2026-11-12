@@ -20,7 +20,10 @@
     fotosPousada: 'Fotos da pousada', fechar: 'Fechar', fotoAnt: 'Foto anterior', fotoProx: 'Próxima foto',
     passeiosDia: 'Passeios do dia', menu: 'Menu', fecharMenu: 'Fechar menu',
     consultarWA: 'Consultar valores no WhatsApp', mandarDirect: 'Mandar direct',
-    consultar: 'Consultar valores', direct: 'Direct'
+    consultar: 'Consultar valores', direct: 'Direct',
+    grupoSM: 'Em São Miguel das Missões', grupoRegiao: 'Pela região', nosRoteiros: 'Aparece nos roteiros de',
+    todosPontos: '↑ Todos os pontos', verPonto: 'Saiba mais sobre este ponto', fotosPontos: 'Fotos dos pontos turísticos',
+    waPontos: 'Olá! Vi os pontos turísticos e quero saber os valores da hospedagem para a minha data.'
   };
   var periodos = [['manha', U.manha], ['tarde', U.tarde], ['noite', U.noite]];
   var ordinais = U.ordinais;
@@ -61,8 +64,9 @@
       var img = new Image();
       img.onload = function () {
         // capa em tela cheia: foto pequena demais para esta tela (esticaria mais de 1,6x) fica fora da troca de fotos
-        if (f.parentNode && f.parentNode.classList.contains('hero-fotos') && f.parentNode.children.length > 1 &&
-            Math.max(window.innerWidth / img.naturalWidth, window.innerHeight / img.naturalHeight) > 1.6) {
+        var cx = f.parentNode, z = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+        if (cx && cx.classList.contains('hero-fotos') && cx.children.length > 1 && !f.classList.contains('ativa') &&
+            cx.offsetWidth && Math.max(cx.offsetWidth * z / img.naturalWidth, cx.offsetHeight * z / img.naturalHeight) > 1.6) {
           f.classList.add('falhou');
           if (typeof legenda === 'function' && slides) legenda();
           return;
@@ -164,7 +168,8 @@
     }
 
     // cada dia, cada lugar com a sua foto (img/lugares/<chave>.jpg)
-    var lado = 0;
+    var lado = 0, temPonto = {};
+    if (typeof PONTOS !== 'undefined') PONTOS.forEach(function (p) { temPonto[p.id] = 1; });
     pag.innerHTML = r.dias_.map(function (id, k) {
       var d = D[id];
       // resumo do dia (coluna fixa no computador): manha, tarde e noite com atalho para cada passeio
@@ -193,6 +198,7 @@
               '<p class="lugar-periodo">' + p[1] + '</p>' +
               '<h3>' + esc(l.t) + conf(l.c) + '</h3>' +
               '<p>' + esc(l.d) + '</p>' +
+              (temPonto[lid] ? '<a class="lugar-mais" href="pontos.html#' + lid + '">' + U.verPonto + ' <i aria-hidden="true">→</i></a>' : '') +
             '</div>' +
           '</article>';
         });
@@ -234,14 +240,47 @@
     }
   }
 
-  /* ===== pagina da pousada: espacos com galeria e visualizador em tela cheia ===== */
+  // pontos turisticos (pontos.js): nome e fotos de la, cidade e texto do roteiros.js (L), ja no idioma da pagina
+  function montaPontos() {
+    var es = LANG === 'es';
+    return PONTOS.map(function (p) {
+      var l = L[p.id] || { t: '', o: '', d: '' };
+      return {
+        id: p.id, grupo: p.grupo, capa: p.capa,
+        titulo: (p.titulo && p.titulo[es ? 1 : 0]) || l.t,
+        rotulo: onde(l.o), texto: l.d, c: l.c,
+        itens: (p.itens || []).map(function (i) { return i[es ? 1 : 0]; }),
+        fotos: p.fotos.map(function (f) { return { f: f[0], leg: (es ? f[2] : f[1]) || f[1] }; }),
+        roteiros: ROTEIROS.filter(function (r) {
+          return r.dias_.some(function (d) { return periodos.some(function (q) { return D[d][q[0]].indexOf(p.id) >= 0; }); });
+        }).map(function (r) { return r.dias; })
+      };
+    });
+  }
+
+  /* ===== pagina da pousada e pagina dos pontos turisticos: espacos com galeria e visualizador em tela cheia ===== */
   var espacos = document.getElementById('espacos');
-  if (espacos && typeof ESPACOS !== 'undefined') {
+  var ESP = typeof ESPACOS !== 'undefined' ? ESPACOS : (espacos && typeof PONTOS !== 'undefined' ? montaPontos() : null);
+  var ehPontos = typeof ESPACOS === 'undefined';
+  if (espacos && ESP) {
     var lista = []; // todas as fotos, na ordem, para o visualizador
     var navE = document.getElementById('nav-espacos');
-    navE.innerHTML = ESPACOS.map(function (e) { return '<a href="#' + e.id + '"><small>' + esc(e.curto || e.titulo) + '</small></a>'; }).join('');
-    if (document.getElementById('localizacao')) navE.innerHTML += '<a href="#localizacao"><small>' + U.localizacao + '</small></a>';
-    espacos.innerHTML = ESPACOS.map(function (e, k) {
+    if (navE) {
+      navE.innerHTML = ESP.map(function (e) { return '<a href="#' + e.id + '"><small>' + esc(e.curto || e.titulo) + '</small></a>'; }).join('');
+      if (document.getElementById('localizacao')) navE.innerHTML += '<a href="#localizacao"><small>' + U.localizacao + '</small></a>';
+    }
+    // indice dos pontos: um cartao com foto para cada ponto, separados por grupo
+    var indice = document.getElementById('indice-pontos');
+    if (indice) {
+      indice.innerHTML = [['sm', U.grupoSM], ['regiao', U.grupoRegiao]].map(function (g) {
+        return '<div class="indice-grupo"><p class="indice-tit">' + g[1] + '</p><div class="indice-cards">' +
+          ESP.filter(function (e) { return e.grupo === g[0]; }).map(function (e) {
+            return '<a class="indice-card" href="#' + e.id + '"><figure class="foto indice-foto" data-src="' + esc(e.fotos[0].f) + '" data-label=""></figure>' +
+              '<span><b>' + esc(e.titulo) + '</b><small>' + esc(e.rotulo) + '</small></span></a>';
+          }).join('') + '</div></div>';
+      }).join('');
+    }
+    espacos.innerHTML = ESP.map(function (e, k) {
       var ini = lista.length;
       e.fotos.forEach(function (f) { lista.push({ src: comV(f.f), leg: f.leg || e.titulo, sec: e.titulo }); });
       var gal = e.fotos.map(function (f, j) {
@@ -253,8 +292,12 @@
           '<p class="rotulo">' + esc(e.rotulo) + '</p>' +
           '<h2>' + esc(e.titulo) + '</h2>' +
           '<p class="espaco-txt">' + esc(e.texto) + conf(e.c) + '</p>' +
-          (e.itens ? '<ul class="espaco-itens">' + e.itens.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' : '') +
+          (e.itens && e.itens.length ? '<ul class="espaco-itens">' + e.itens.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' : '') +
+          (e.roteiros && e.roteiros.length ? '<p class="espaco-roteiros"><span>' + U.nosRoteiros + '</span>' + e.roteiros.map(function (n) {
+            return '<a href="' + linkRoteiro(n) + '">' + n + ' ' + diasTxt(n) + '</a>';
+          }).join('') + '</p>' : '') +
           (e.fotos.length > 1 ? '<button type="button" class="gal-todas espaco-ver" data-i="' + ini + '">' + U.verFotos.replace('{n}', e.fotos.length) + '</button>' : '') +
+          (indice ? '<a class="espaco-topo" href="#indice">' + U.todosPontos + '</a>' : '') +
         '</div>' +
         '<div class="galeria gal-' + Math.min(e.fotos.length, 7) + '">' + gal + '</div>' +
         (e.fotos.length > 1 ? '<p class="gal-ver"><button type="button" class="gal-todas" data-i="' + ini + '">' + U.verFotos.replace('{n}', e.fotos.length) + '</button></p>' : '') +
@@ -264,7 +307,7 @@
     // capa rotativa: fachada + a primeira foto de cada espaco (apartamentos, suites, cafe, cozinha, piscina...)
     var heroP = document.getElementById('pousada-hero-fotos');
     if (heroP) {
-      heroP.innerHTML += ESPACOS.filter(function (e) { return e.capa !== ''; }).map(function (e) {
+      heroP.innerHTML += ESP.filter(function (e) { return e.capa !== ''; }).map(function (e) {
         return '<figure class="foto hero-foto" data-src="' + esc(e.capa || e.fotos[0].f) + '" data-legenda="' + esc(e.titulo) + '" data-label=""></figure>';
       }).join('');
       document.getElementById('hero-prog').innerHTML = heroP.children.length > 1 ? new Array(heroP.children.length + 1).join('<i></i>') : '';
@@ -272,7 +315,7 @@
 
     // visualizador
     var lb = document.createElement('div');
-    lb.className = 'lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', U.fotosPousada);
+    lb.className = 'lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', ehPontos ? U.fotosPontos : U.fotosPousada);
     lb.innerHTML = '<button type="button" class="lb-fechar" aria-label="' + U.fechar + '">×</button>' +
       '<button type="button" class="lb-seta lb-ant" aria-label="' + U.fotoAnt + '">‹</button>' +
       '<figure class="lb-fig"><img alt=""><figcaption><span class="lb-sec"></span><span class="lb-leg"></span><span class="lb-n"></span></figcaption></figure>' +
@@ -312,12 +355,12 @@
     });
 
     // marca o espaco que esta na tela
-    if ('IntersectionObserver' in window) {
+    if (navE && 'IntersectionObserver' in window) {
       var linksE = navE.querySelectorAll('a');
       var obsE = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
-          var n = ESPACOS.map(function (x) { return x.id; }).concat(['localizacao']).indexOf(e.target.id);
+          var n = ESP.map(function (x) { return x.id; }).concat(['localizacao']).indexOf(e.target.id);
           Array.prototype.forEach.call(linksE, function (a, i) { a.classList.toggle('ativo', i === n); });
         });
       }, { rootMargin: '-45% 0px -50% 0px' });
@@ -327,7 +370,7 @@
     var outrosP = document.getElementById('outros');
     if (outrosP) outrosP.innerHTML = ROTEIROS.map(cartao).join('');
     Array.prototype.forEach.call(document.querySelectorAll('.js-wa'), function (a) {
-      a.href = WA + encodeURIComponent(U.waPousada);
+      a.href = WA + encodeURIComponent(ehPontos ? U.waPontos : U.waPousada);
     });
   }
 
