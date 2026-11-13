@@ -718,3 +718,47 @@ html.es.pronto body { opacity: 1; transition: opacity .2s ease; }
 .espaco-mapa { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px 8px 11px; background: #c8312b; border: 0; border-radius: 999px; box-shadow: 0 3px 10px rgba(200, 49, 43, .28); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #fff; text-decoration: none; transition: background .2s ease, box-shadow .2s ease, transform .2s ease; }
 .espaco-mapa svg { flex: 0 0 auto; }
 .espaco-mapa:hover { background: #a3241f; box-shadow: 0 5px 14px rgba(163, 36, 31, .34); transform: translateY(-1px); }
+
+/* ===== celular mais compacto (pedido do Pedro, 12/11/2026: "muito zoom no celular") =====
+   Titulos, textos grandes, botoes e espacos entre secoes menores no celular.
+   As letras pequenas (menu, etiquetas) ficam como estavam, para continuar legiveis. */
+@media (max-width: 760px) {
+  body { font-size: 16px; line-height: 1.6; }
+
+  .hero-txt { padding: 96px 18px 84px; }
+  .hero h1 { margin-top: 20px; font-size: 44px; }
+  .rot-hero h1 { font-size: 38px; }
+  .hero-sub { font-size: 18px; }
+  .selo { margin: 18px 0 26px; font-size: 11px; }
+  .cta-txt { padding: 96px 18px 90px; }
+  .cta-sub { font-size: 18px; }
+
+  section h2, .dia-cab h2, .espaco-cab h2 { font-size: 34px; }
+  .rot-info h3 { font-size: 30px; margin: 16px 0 12px; }
+  .lugar-txt h3 { font-size: 26px; margin-bottom: 12px; }
+  .pilar h3 { font-size: 25px; }
+  .cartao h3 { font-size: 23px; }
+  .card-txt h3 { font-size: 22px; }
+  .dia h4 { font-size: 27px; }
+  .card-num { font-size: 56px; }
+  .rot-num { font-size: 72px; }
+  .fato b { font-size: 30px; }
+  .seletor button b { font-size: 22px; }
+  .nav-dias a b { font-size: 21px; }
+
+  .aviso { padding: 26px 20px; margin-top: 44px; }
+  .aviso p:last-child, .rot-resumo, .espaco-txt, .chegar-intro { font-size: 18px; }
+  .lugar-periodo, .periodo-nome, .dia-per > p { font-size: 18px; }
+  .rodape-frase { font-size: 17px; }
+
+  .sobre, .pousada { padding: 68px 16px; }
+  .roteiros { padding: 68px 0 60px; }
+  .espaco { padding: 56px 16px; }
+  .dia-sec { padding: 72px 0 10px; }
+  .chegar-txt { padding: 60px 16px 40px; }
+  .indice { padding: 60px 16px 56px; }
+  .rodape { padding: 56px 16px 90px; }
+
+  .btn { padding: 15px 22px; font-size: 12px; letter-spacing: .16em; }
+  .menu-mob nav a { font-size: 25px; padding: 14px 0; }
+}
